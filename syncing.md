@@ -6,6 +6,8 @@ outline: deep
 
 Once both the Execution and Consensus Engines are running the chain will begin syncing. This can take some time depending on your hardware and internet connection.
 
+## Checking sync status
+
 You can check the status of the sync by running the following command in the `gzond` console:
 
 ```gzond
