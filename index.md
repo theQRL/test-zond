@@ -12,7 +12,7 @@ hero:
       link: /install
     - theme: alt
       text: Problems?
-      link: /api-examples
+      link: /reporting
 
 features:
   - title: Install
