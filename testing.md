@@ -5,6 +5,9 @@ hero:
   tagline: Testing
 
 features:
+  - title: Running your node
+    details: Steps to get your node running
+    link: /running
   - title: Syncing
     details: Getting a node fully synced
     link: /syncing

@@ -28,7 +28,7 @@ git clone https://github.com/theQRL/go-zond.git
 git clone https://github.com/theQRL/qrysm.git
 ```
 
-### Build the Zond node with Golang v1.21 or later
+### Build go-zond (the Execution Engine) with Golang v1.21 or later
 
 ```cmd.exe
 cd go-zond
@@ -37,14 +37,14 @@ copy build\bin\cmd\gzond.exe ..\
 cd ..
 ```
 
-### Ensure Golang v1.20 is available to build the validator
+### Ensure Golang v1.20 is available to build the Consensus Engine
 
 ```cmd.exe
 go install golang.org/dl/go1.20@latest
 go1.20 download
 ```
 
-### Build the validator
+### Build qrsym (Consensus Engine) with Golang v1.20
 
 ```cmd.exe
 cd qrysm
