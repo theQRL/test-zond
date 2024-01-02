@@ -3,6 +3,10 @@ outline: deep
 ---
 # Installing on Windows
 
+::: info
+Tested on Windows 10 and Windows 11
+:::
+
 This page contains instructions for installing the Zond node on Windows.
 
 ## Downloading binaries

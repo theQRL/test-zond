@@ -4,14 +4,14 @@ outline: deep
 # Installing on Mac
 
 ::: info
-Tested on MacOS Sonoma 14.1.2 (Apple Silicon)
+Tested on MacOS Sonoma 14.1.2 (Apple Silicon & Intel)
 :::
 
 This page contains instructions for installing the Zond node on Mac.
 
 ## Downloading binaries
 
-The Zond node & PoS validator are available as pre-compiled binaries for Windows. The latest release can be downloaded from the [releases page](https://theqrl.org/downloads/). **===TBD===**
+The Zond node & PoS validator are available as pre-compiled binaries for Apple and Intel-based Macs. The latest release can be downloaded from the [releases page](https://theqrl.org/downloads/). **===TBD===**
 
 ## Building from Source
 
@@ -25,6 +25,7 @@ The Zond node requires the following dependencies to be installed:
 ::: info TIP
 gobrew is recommended to control go version on MacOS / Linux. Install with:\
 ```curl -sLk https://git.io/gobrew | sh -```
+Follow the instructions to add gobrew to your path and confirm it is working with ```gobrew --version```
 :::
 
 ### Clone the Zond repositories
@@ -52,4 +53,16 @@ gobrew use 1.20.12
 go build -o=../qrysmctl ./cmd/qrysmctl
 go build -o=../beacon-chain ./cmd/beacon-chain
 go build -o=../validator ./cmd/validator
+```
+
+::: info
+
+If using a system-wide installation of Golang, ensure v1.20 is available to build the Consensus Engine and specify the version when building:
+
+```bash
+go install golang.org/dl/go1.20@latest
+go1.20 download
+go1.20 build -o=../qrysmctl.exe ./cmd/qrysmctl
+go1.20 build -o=../beacon-chain.exe ./cmd/beacon-chain
+go1.20 build -o=../validator.exe ./cmd/validator
 ```
