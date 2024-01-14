@@ -11,7 +11,7 @@ This page contains instructions for installing the Zond node on Windows.
 
 ## Downloading binaries
 
-The Zond node & PoS validator are available as pre-compiled binaries for Windows. The latest release can be downloaded from the [releases page](https://theqrl.org/downloads/). **===TBD===**
+The Zond node & PoS validator are available as pre-compiled binaries for some operating systems. The latest releases can be seen and downloaded from the [go-zond releases page](https://github.com/theQRL/go-zond/releases/) and [qrysm releases page](https://github.com/theQRL/qrysm/releases/) on GitHub.
 
 ## Building from Source
 
