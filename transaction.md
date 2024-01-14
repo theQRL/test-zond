@@ -4,6 +4,4 @@ outline: deep
 
 # Making a transaction
 
-How to make a transaction.
-
-todo
+Coming once Testnet is live and funds have been distributed.
