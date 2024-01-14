@@ -17,8 +17,9 @@ The Zond node & PoS validator are available as pre-compiled binaries for some op
 
 ### Dependencies
 
-The Zond node requires the following dependencies to be installed:
+The Zond node requires the following dependencies to be installed in order to be built from source:
 
+- build-essential (gcc, g++, make, etc.) `sudo apt install build-essential`
 - Golang v1.21 or later **and** 1.20.12
 
 ::: info TIP
