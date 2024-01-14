@@ -29,8 +29,8 @@ export default defineConfig({
       {
         text: "Reporting",
         items: [
-          { text: "Error report", link: "/error" },
-          { text: "Bug report", link: "/bug" },
+          { text: "Bug/Error report", link: "/bug" },
+          { text: "Success report", link: "/success" },
           { text: "Feature request", link: "/feature" },
         ],
       },
@@ -58,8 +58,8 @@ export default defineConfig({
       {
         text: "Reporting",
         items: [
-          { text: "Error report", link: "/error" },
-          { text: "Bug report", link: "/bug" },
+          { text: "Bug/Error report", link: "/bug" },
+          { text: "Success report", link: "/success" },
           { text: "Feature request", link: "/feature" },
         ],
       },
