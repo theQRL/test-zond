@@ -17,4 +17,7 @@ features:
   - title: Making a transaction
     details: Making a transaction on the Zond network
     link: /transaction
+  - title: Staking / Unstaking
+    details: How to stake and unstake on the network
+    link: /staking
 ---
