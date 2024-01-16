@@ -24,7 +24,7 @@ zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value:
 
 ## Estimate gas fees
 
-There is a command function to estimate the gas fees of a transaction, returns gas in .
+There is a command function to estimate the gas fees of a transaction
 
 > Change the to/from addresses and the amount.
 
