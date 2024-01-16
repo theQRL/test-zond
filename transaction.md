@@ -18,7 +18,7 @@ zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value:
 or using the web3 `toWei` conversion functions:
 
 ```js
-zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value: web3.toWei(1.0, "ether"), gas:21000});
+zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value: web3.toWei(1.0, 'ether'), gas:21000});
 ```
 
 
@@ -38,7 +38,7 @@ or using the `toWei` web3 function:
 
 ```js
 zond.estimateGas({from:'0xFrom_Zond_Address', to:'
-	0xTo_Zond_Address', value: web3.toWei(1.0, "ether")});
+	0xTo_Zond_Address', value: web3.toWei(1.0, 'ether')});
 
 // response
 21000
