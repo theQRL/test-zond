@@ -36,8 +36,8 @@ git clone https://github.com/theQRL/qrysm.git
 
 ```cmd.exe
 cd go-zond
-go build .\cmd\gzond
-copy gzond.exe ..\
+go build ./cmd/gzond
+cp gzond.exe ../
 cd ..
 ```
 
