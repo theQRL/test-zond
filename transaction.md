@@ -11,13 +11,13 @@ Send testnet Zond funds using a the `gzond` command line.
 
 Send 1 quanta in Wei,
 
-```bash
+```js
 zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value: 1000000000000000000, gas:21000);
 ```
 
 or using the web3 `toWei` conversion functions:
 
-```bash
+```js
 zond.sendTransaction({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value: web3.toWei(1.0, "ether"), gas:21000});
 ```
 
@@ -28,19 +28,19 @@ There is a command function to estimate the gas fees of a transaction, returns g
 
 > Change the to/from addresses and the amount.
 
-```bash
+```js
 zond.estimateGas({from:'0xFrom_Zond_Address', to:'0xTo_Zond_Address', value: 1000000000000000000});
 
-# response:
+// response:
 21000
 ```
 or using the `toWei` web3 function:
 
-```bash
+```js
 zond.estimateGas({from:'0xFrom_Zond_Address', to:'
 	0xTo_Zond_Address', value: web3.toWei(1.0, "ether")});
 
-# response
+// response
 21000
 ```
 
