@@ -6,21 +6,9 @@ outline: deep
 
 Follow these steps to begin staking on Zond testnet.
 
-**General Flow**
-
-1. Download and build the staking-deposit-cli and validator client
-2. Generate new dilithium address and grab the seed. (also generates the files needed for step 4/5)
-2. Import that seed into the zond accounts and record the public address. Write seed to file (without the `0x`).
-3. Fund that address with minimum 40000 +gas for a single validator
-4. transmit the Staking Deposit Transaction data
-5. Start the validator client to begin staking
-
 ## Download and build the required staking tools
 
-Download the validator client binary release for your distro in the [qrysm repository](https://github.com/theQRL/qrysm/releases/latest)
-
-**OR**
-Clone the [qrysm repository](https://github.com/theQRL/qrysm) locally and build the validator client. Ensure Golang v1.20 is available.
+Clone the [qrysm repository](https://github.com/theQRL/qrysm.git) locally and build the validator client and staking-deposit-cli. Ensure Golang v1.20 is available.
 
 #### Windows 
 
@@ -46,15 +34,15 @@ These binaries should live in the same directory as the main beacon and gzond bi
 
 ## Generate a new dilithium staking address
 
-Modify the number of validators based on the balance the new address will have. *Each validator requires minimum 40000 quanta to stake.*
+Modify the number of validators (`--num-validators`) to suit your needs. Each validator requires minimum *40,000* quanta to stake.
 
 ```bash
 ./staking-deposit-cli new-seed --num-validators 1
 ```
 
-Please note down your Dilithium seed, and write only it to file. Named `staking_wallet.seed` in the example below.
+Please note down your Dilithium seed, and write only it to a file for the next step. Named `staking_wallet.seed` in the example below.
 
-### Import new address seed for public key
+### Import the new address seed for public key
 
 ```bash
 ./gzond-v0.1.0-linux-amd64 --datadir=gzonddata account import staking_wallet.seed 
@@ -66,7 +54,9 @@ Please note down your Public address (*given without the `0x` added to the front
 
 Provide the newly created address to the [Discord chat](https://theqrl.org/discord) for a testnet funds request.
 
-Or if you already posses these funds in another address transfer them with the gzond console: 
+Or 
+
+If you already posses these funds in another address transfer them with the gzond console: 
 
 ```js
 zond.sendTransaction({from:'0xFromZondAddress', to:'0xToZondAddress', value: web3.toWei(40001.0, "ether"), gas:21000});
