@@ -14,5 +14,8 @@ features:
   - title: Mac
     details: Installations instructions for Mac
     link: /mac
+  - title: Updating
+    details: Updating your node
+    link: /updating
 ---
 

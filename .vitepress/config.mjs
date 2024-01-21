@@ -14,6 +14,7 @@ export default defineConfig({
           { text: "Windows", link: "/windows" },
           { text: "Linux", link: "/linux" },
           { text: "Mac", link: "/mac" },
+          { text: "Updating", link: "/updating"},
         ],
       },
       {
@@ -43,6 +44,7 @@ export default defineConfig({
           { text: "Windows", link: "/windows" },
           { text: "Linux", link: "/linux" },
           { text: "Mac", link: "/mac" },
+          { text: "Updating", link: "/updating"},
         ],
       },
       {
