@@ -21,9 +21,12 @@ The Zond node requires the following dependencies to be installed:
 
 - [Git for Windows](https://git-scm.com/download/win)
 - [Golang for Windows](https://golang.org/dl/) v1.21 or later
-- MinGW [direct install](https://sourceforge.net/projects/mingw-w64/files/latest/download) or via [Chocolatey](https://chocolatey.org/packages/mingw)*
+- [TDM-GCC](https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release)*
 
 *_This dependency to be removed in the future._
+
+
+The following commands should be entered separately, line-by-line, in Windows Command Prompt (i.e. cmd.exe)
 
 ### Clone the Zond repositories
 
@@ -36,8 +39,8 @@ git clone https://github.com/theQRL/qrysm.git
 
 ```cmd.exe
 cd go-zond
-go build ./cmd/gzond
-cp gzond.exe ../
+go build .\cmd\gzond
+cp gzond.exe ..\
 cd ..
 ```
 
@@ -52,7 +55,7 @@ go1.20 download
 
 ```cmd.exe
 cd qrysm
-go1.20 build -o=../qrysmctl.exe ./cmd/qrysmctl
-go1.20 build -o=../beacon-chain.exe ./cmd/beacon-chain
-go1.20 build -o=../validator.exe ./cmd/validator
+go1.20 build -o ../qrysmctl.exe ./cmd/qrysmctl
+go1.20 build -o ../beacon-chain.exe ./cmd/beacon-chain
+go1.20 build -o ../validator.exe ./cmd/validator
 ```
