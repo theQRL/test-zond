@@ -55,11 +55,11 @@ cd qrysm
 git pull
 ```
 
-6. Rebuild binaries as per the [installation guide](https://test-zond.theqrl.org/install)
+6. Rebuild binaries as per the [installation guide](/install)
 
-7. Redownload the `config.yml` and `genesis.ssz` files as per the [https://test-zond.theqrl.org/running.html](running guide).
+7. Redownload the `config.yml` and `genesis.ssz` files as per the [running guide](/running.html).
 
-8. Command line flags / enr data change between releases: use the [online, up-to-date documentation](http://localhost:5173/running.html) for the CLI parameters recommended to run.
+8. Command line flags / enr data change between releases: use the [online, up-to-date documentation](/running.html) for the CLI parameters recommended to run.
 
 ::: info 2024-Jan-21 release
 
