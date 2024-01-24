@@ -21,7 +21,7 @@ The Zond node requires the following dependencies to be installed:
 
 - [Git for Windows](https://git-scm.com/download/win)
 - [Golang for Windows](https://golang.org/dl/) v1.21 or later
-- [TDM-GCC](https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release)*
+- A GCC compiler*: `choco install mingw` if using the Chocolatey package manager, [TDM-GCC](https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release) or see [MinGW-w64](https://www.mingw-w64.org/) for more options.
 
 *_This dependency to be removed in the future._
 
