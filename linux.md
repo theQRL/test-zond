@@ -1,5 +1,5 @@
 ---
-outline: deep
+outline: 3
 ---
 # Installing on Linux
 
@@ -66,3 +66,24 @@ go1.20 build -o=../qrysmctl.exe ./cmd/qrysmctl
 go1.20 build -o=../beacon-chain.exe ./cmd/beacon-chain
 go1.20 build -o=../validator.exe ./cmd/validator
 ```
+
+:::
+
+### Troubleshooting
+
+While the instructions above are tested on fresh OS installs, there will be a variety of system configurations that may cause issues.
+
+Some problems and solutions encountered by our community testers are listed below.
+
+If you encounter any other problems (or the solutions don't work for you), please [open an issue](https://github.com/theQRL/test-zond/issues).
+
+#### 1. Missing `-lstdc++` library
+
+```bash
+    /usr/bin/ld: cannot find -lstdc++: No such file or directory
+```
+
+**Solutions:**\
+    a. Install the `libstdc++-12-dev` library with `sudo apt install libstdc++-12-dev` \
+    or \
+    b. Update sources and explicitly specify packages: `sudo apt update && sudo apt install build-essential make gcc-multilib clang`
