@@ -4,7 +4,25 @@ outline: deep
 
 # Making a transaction
 
-Send testnet Zond funds using a the `gzond` command line.
+Send testnet Zond funds using a the `gzond` console.
+
+::: info Tip
+You can create a new console for a running node to interact with the QRL Zond Testnet by starting a new command line session and running:
+
+**Mac/Linux**
+
+```
+./gzond attach --datadir=gzonddata
+```
+
+**Windows**
+
+```
+gzond.exe attach --datadir=gzonddata
+```
+
+This avoids being distracted by the streamed log of node activity and output.
+:::
 
 ## Send a Zond transaction
 

@@ -20,4 +20,7 @@ features:
   - title: Staking / Unstaking
     details: How to stake and unstake on the network
     link: /staking
+  - title: Smart Contracts
+    details: How to deploy and interact with smart contracts
+    link: /smart-contracts
 ---
