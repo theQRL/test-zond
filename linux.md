@@ -80,7 +80,7 @@ If you encounter any other problems (or the solutions don't work for you), pleas
 #### 1. Missing `-lstdc++` library
 
 ```bash
-    /usr/bin/ld: cannot find -lstdc++: No such file or directory
+/usr/bin/ld: cannot find -lstdc++: No such file or directory
 ```
 
 **Solutions:**\
