@@ -14,6 +14,7 @@ export default defineConfig({
           { text: "Windows", link: "/windows" },
           { text: "Linux", link: "/linux" },
           { text: "Mac", link: "/mac" },
+          { text: "Updating", link: "/updating"},
         ],
       },
       {
@@ -24,6 +25,7 @@ export default defineConfig({
           { text: "Creating a wallet", link: "/creating-wallet" },
           { text: "Making a transaction", link: "/transaction" },
           { text: "Staking/Unstaking", link: "/staking" },
+          { text: "Smart Contracts", link: "/smart-contracts"}
         ],
       },
       {
@@ -43,6 +45,7 @@ export default defineConfig({
           { text: "Windows", link: "/windows" },
           { text: "Linux", link: "/linux" },
           { text: "Mac", link: "/mac" },
+          { text: "Updating", link: "/updating"},
         ],
       },
       {
@@ -53,6 +56,7 @@ export default defineConfig({
           { text: "Creating a wallet", link: "/creating-wallet" },
           { text: "Making a transaction", link: "/transaction" },
           { text: "Staking/Unstaking", link: "/staking" },
+          { text: "Smart Contracts", link: "/smart-contracts"},
         ],
       },
       {
