@@ -10,7 +10,7 @@ Once both the Execution and Consensus Engines are running the chain will begin s
 
 You can check the status of the sync by running the following command in the `gzond` console:
 
-```gzond
+```bash
 zond.syncing
 ```
 

@@ -9,7 +9,7 @@ outline: deep
 
 ### Windows
 
-``` cmd.exe
+``` cmd
 del beacon-chain.exe gzond.exe qrysmctl.exe validator.exe
 ```
 
