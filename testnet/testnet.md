@@ -4,8 +4,8 @@ layout: home
 title: "Testnet"
 
 hero:
-  name: "Zond Private Testnet"
-  text: "BUIDL Preview (Internal)"
+  name: "Zond Testnet"
+  text: "#BUIDL Preview"
   tagline: Launch a fully contained network to BUIDL the next generation post quantum secure blockchain 
   actions:
     - theme: brand
