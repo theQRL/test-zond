@@ -2,13 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: ' ',
+  title: 'Zond',
   siteTitle: true,
   titleTemplate: 'Zond | :title',
   description:
     "Public testing of the next evolution of post-quantum secure distributed ledger technology",
   themeConfig: {
-    logo: '/zond2.png',
+    //logo: '/zond.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
@@ -16,13 +16,13 @@ export default defineConfig({
         activeMatch: '/testnet/',
         items: [
           { text: "Getting Started", link: "/testnet/get-started"},
-          { text: "Testnet Installation", items: [
+          { text: "Install", items: [
             { text: "Linux", link: "/testnet/linux" },
             { text: "Mac", link: "/testnet/mac" },
             { text: "Windows", link: "/testnet/windows" },
             ] 
           },
-          { text: "Testnet Usage", items: [
+          { text: "Usage", items: [
             { text: "Configuraton", link: "/testnet/configuration" },
             { text: "Connect to Nework", link: "/testnet/connect" },
             { text: "Clef", link: "/testnet/clef" },

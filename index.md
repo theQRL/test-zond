@@ -2,16 +2,16 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 footer: true
-title: 'Zond'
+title: 'Documentation'
 
 hero:
   name: "Project Zond"
   text: Documentation
   tagline: Build with the next evolution of post-quantum secure distributed ledger technology
-  image:
+#  image:
 #    src: /qrl-logo.svg
-    src: /zond-stack.png
-    alt: Zond by The QRL
+#    src: /zond-stack.png
+#    alt: Zond by The QRL
   actions:
     - theme: brand
       text: Get Started
@@ -21,13 +21,13 @@ hero:
       link: /reporting
 
 features:
-  - title: Zond Testnet BUIDL
+  - title: Zond Testnet <span v-pre>#BUIDL preview</span v-pre>
     details: Get started with the latest Zond testnet network
     link: /testnet/testnet
-  - title: Zond Beta Testnet
-    details: Historical documentation for the long standing Zond Beta Testnet 
+  - title: Zond Beta-Testnet
+    details: Documentation for the long standing Zond Beta-Testnet 
     link: /beta-testnet/beta-testnet
-  - title: Connect and Contact
+  - title: Reporting
     details: Report issues, get help, and connect to the core Zond team
-    link: /contact
+    link: /reporting
 ---
