@@ -26,7 +26,7 @@ features:
     link: /testnet
   - title: Zond Beta-Testnet
     details: Documentation for the long standing Zond Beta-Testnet 
-    link: /beta-testnet/beta-testnet
+    link: /beta-testnet/running
   - title: Reporting
     details: Report issues, get help, and connect to the core Zond team
     link: /reporting
