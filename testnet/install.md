@@ -9,15 +9,12 @@ hero:
 features:
   - title: Windows
     details: Installations instructions for Windows
-    link: /testnet/windows
+    link: /testnet/install/windows
   - title: Linux
     details: Installations instructions for Linux
-    link: /testnet/linux
+    link: /testnet/install/linux-ubuntu
   - title: Mac
     details: Installations instructions for Mac
-    link: /testnet/mac
-  - title: Updating
-    details: Updating your node
-    link: /beta-testnet/updating
+    link: /testnet/install/mac
 ---
 

@@ -7,11 +7,11 @@ hero:
 features:
   - title: Bug/Error report
     details: Reporting bugs or error message to the dev team
-    link: /beta-testnet/bug
+    link: /reporting/bug
   - title: Success report
     details: Got up and running? Let us know!
-    link: /beta-testnet/success
+    link: /reporting/success
   - title: Feature request
     details: All about feature requests
-    link: /beta-testnet/feature
+    link: /reporting/feature
 ---

@@ -23,7 +23,7 @@ hero:
 features:
   - title: Zond Testnet <span v-pre>#BUIDL preview</span v-pre>
     details: Get started with the latest Zond testnet network
-    link: /testnet/testnet
+    link: /testnet
   - title: Zond Beta-Testnet
     details: Documentation for the long standing Zond Beta-Testnet 
     link: /beta-testnet/beta-testnet

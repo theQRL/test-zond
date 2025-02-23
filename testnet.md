@@ -13,7 +13,7 @@ hero:
       link: /testnet/get-started
     - theme: alt
       text: ETHDenver Bounty
-      link: /testnet/bounty
+      link: https://ethdenver2025.devfolio.co/prizes?partner=The+Quantum+Resistant+Ledger
 
 features:
   - title: Install

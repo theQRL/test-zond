@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Zond',
   siteTitle: true,
+  cleanUrls: true,
   titleTemplate: 'Zond | :title',
   description:
     "Public testing of the next evolution of post-quantum secure distributed ledger technology",
@@ -12,23 +13,22 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: "Testnet",
+        text: "Zond BUIDL Preview",
         activeMatch: '/testnet/',
         items: [
           { text: "Getting Started", link: "/testnet/get-started"},
           { text: "Install", items: [
-            { text: "Linux", link: "/testnet/linux" },
-            { text: "Mac", link: "/testnet/mac" },
-            { text: "Windows", link: "/testnet/windows" },
-            ] 
+            { text: "Linux (Ubuntu)", link: "/testnet/install/linux-ubuntu" },
+            { text: "Mac", link: "/testnet/install/mac" },
+            { text: "Windows", link: "/testnet/install/windows" },
+            ], 
           },
           { text: "Usage", items: [
-            { text: "Configuraton", link: "/testnet/configuration" },
-            { text: "Connect to Nework", link: "/testnet/connect" },
-            { text: "Clef", link: "/testnet/clef" },
-            ] 
-          },
-          { text: "NEXT_LINK", link: "/testnet/testnet"},
+                { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
+                { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
+                { text: "dApp Example", link: "/testnet/usage/dapp-example" }
+            ], 
+          }
         ],
       },
       {
@@ -80,9 +80,9 @@ export default defineConfig({
         {
           text: "Reporting",
           items: [
-            { text: "Bug/Error report", link: "/bug" },
-            { text: "Success report", link: "/success" },
-            { text: "Feature request", link: "/feature" },
+            { text: "Bug/Error report", link: "/reporting/bug" },
+            { text: "Success report", link: "/reporting/success" },
+            { text: "Feature request", link: "/reporting/feature" },
           ],
         },
       ],
@@ -92,30 +92,31 @@ export default defineConfig({
         {
           text: "Zond Testnet BUIDL Preview",
           items: [
+            { text: "Getting Started", link: "/testnet/get-started"},
             { 
               text: "Install", 
               items: [
-                { text: "Linux", link: "/testnet/linux" },
-                { text: "Mac", link: "/testnet/mac" },
-                { text: "Windows", link: "/testnet/windows" },
+                { text: "Linux (Ubuntu)", link: "/testnet/install/linux-ubuntu" },
+                { text: "Mac", link: "/testnet/install/mac" },
+                { text: "Windows", link: "/testnet/install/windows" },
               ]
              },
 
             { 
               text: "Usage", 
               items: [
-                { text: "Configuraton", link: "/testnet/configuration" },
-                { text: "Connect to Network", link: "/testnet/connect" },
-                { text: "Clef", link: "/testnet/clef" },
+                { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
+                { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
+                { text: "dApp Example", link: "/testnet/usage/dapp-example" }
               ]
              },
 
             {
               text: "Reporting",
               items: [
-                { text: "Bug/Error report", link: "/bug" },
-                { text: "Success report", link: "/success" },
-                { text: "Feature request", link: "/feature" },
+            { text: "Bug/Error report", link: "/reporting/bug" },
+            { text: "Success report", link: "/reporting/success" },
+            { text: "Feature request", link: "/reporting/feature" },
               ],
             },
 

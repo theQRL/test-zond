@@ -18,7 +18,7 @@ Tested on MacOS Sequoia Version 15.3.1 (Apple Silicon)
 
 Getting started with the Zond testnet Local system
 
-## Install prerequisits 
+## 1. Install prerequisits 
 
 If you haven't done so already, install brew, then install [docker](https://docs.docker.com/desktop/setup/install/mac-install/) and other prerequesits with brew.
 
@@ -32,13 +32,7 @@ Be sure to add bazel 7.5.0 to your path.
 echo 'export PATH="/opt/homebrew/opt/bazel@7/bin:$PATH"' >> ~/.zshrc
 ```
 
-Then start a new terminal
-
-# Getting the network up and running
-
-
-
-## Clone the repo & cd into it
+## 2. Clone the repo & cd into it
 
 ```bash
 git clone https://github.com/theQRL/qrysm -b dev && cd qrysm
@@ -80,7 +74,7 @@ docker ps --format '{{.Ports}}' | grep 8545 | sed 's/0.0.0.0://g'
 ```
 :::
 
-# PreMined Coins or Funding Accounts at Genesis
+# 4. PreMined Coins or Funding Accounts at Genesis
 
 ```bash
 cd qrysm
