@@ -7,15 +7,15 @@ hero:
 features:
   - title: Windows
     details: Installations instructions for Windows
-    link: /windows
+    link: /beta-testnet/windows
   - title: Linux
     details: Installations instructions for Linux
-    link: /linux
+    link: /beta-testnet/linux
   - title: Mac
     details: Installations instructions for Mac
-    link: /mac
+    link: /beta-testnet/mac
   - title: Updating
     details: Updating your node
-    link: /updating
+    link: /beta-testnet/updating
 ---
 
