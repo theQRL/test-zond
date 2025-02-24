@@ -55,11 +55,11 @@ cd qrysm
 git pull
 ```
 
-6. Rebuild binaries as per the [installation guide](/install)
+6. Rebuild binaries as per the [installation guide](/beta-testnet/install)
 
-7. Redownload the `config.yml` and `genesis.ssz` files as per the [running guide](/running.html).
+7. Redownload the `config.yml` and `genesis.ssz` files as per the [running guide](/beta-testnet/running.html).
 
-8. Command line flags / enr data change between releases: use the [online, up-to-date documentation](/running.html) for the CLI parameters recommended to run.
+8. Command line flags / enr data change between releases: use the [online, up-to-date documentation](/beta-testnet/running.html) for the CLI parameters recommended to run.
 
 ::: info 2024-Jan-21 release
 
