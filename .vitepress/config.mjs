@@ -6,6 +6,17 @@ export default defineConfig({
   siteTitle: true,
   cleanUrls: true,
   titleTemplate: 'Zond | :title',
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-YN2S7EESNM' }
+    ],
+    [
+      'script',
+      {},
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-YN2S7EESNM');"
+    ]
+  ],
   description:
     "Public testing of the next evolution of post-quantum secure distributed ledger technology",
   themeConfig: {
