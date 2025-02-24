@@ -24,7 +24,7 @@ features:
     link: /testnet/usage
   - title: Zond Core Code
     details: Links and informaiton on where to find the core code behind the Zond netowrk
-    link: /repositories
+    link: /testnet/repositories
 ---
 
 

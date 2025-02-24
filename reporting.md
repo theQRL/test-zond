@@ -1,8 +1,11 @@
 ---
 layout: home
+footer: true
+title: 'Reporting'
 
 hero:
-  tagline: Reporting
+  name: "Reporting"
+  tagline: Issues, Bugs, Suggestions and Compliments here
 
 features:
   - title: Bug/Error report

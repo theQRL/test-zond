@@ -15,6 +15,6 @@ features:
     link: /testnet/usage/contract-example
   - title: dApp Example
     details: Example of web application that interacts with the web3-wallet
-    link: /testnet/install/dapp-example
+    link: /testnet/usage/dapp-example
 ---
 
