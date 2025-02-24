@@ -21,7 +21,7 @@ This should be in the same directory as the `gzond` and `beacon-chain` files.
 
 ### Windows 
 
-```cmd.exe
+```cmd
 git clone https://github.com/theQRL/qrysm.git
 cd qrysm
 go1.20 build -o=..\validator.exe .\cmd\validator

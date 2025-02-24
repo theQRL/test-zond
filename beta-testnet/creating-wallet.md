@@ -8,7 +8,7 @@ From the root zond directory where you have launched the node, enter:
 
 ### Windows
 
-```cmd.exe
+```cmd
 gzond.exe --datadir=gzonddata account new
 ```
 
