@@ -21,6 +21,11 @@ Getting started with the Zond testnet Local system
 
 This requires Docker, brew, yq running in Ubuntu 22.04
 
+### Update & Build-essential
+
+```
+sudo apt-get update && sudo apt-get install build-essential
+```
 
 ### Docker Install
 
@@ -51,12 +56,6 @@ And update the docker.sock user group
 
 ```
 sudo chown root:docker /var/run/docker.sock
-```
-
-### Install yq
-
-```
-sudo snap install yq
 ```
 
 ### Install Bazel v6.3.2 (Instructions taken from https://bazel.build/install/ubuntu)
@@ -129,3 +128,30 @@ Once you restarted your network you can check the balance by the following comma
 ```
 curl -H "Content-Type: application/json" -X POST localhost:MAPPED_PORT --data '{"jsonrpc":"2.0","method":"zond_getBalance","params":["YOUR_ADDRESS", "latest"],"id":1}'
 ```
+
+## Common issues
+
+### Apparmor security on some cloud providers
+
+If you get an error like this.
+```
+open /home/ubuntu/qrysm/scripts/local_testnet/../../bazel-bin/cmd/beacon-chain/oci_image_tarball/tarball.tar: permission denied
+```
+
+It's likely due to security restrictions that you'll want to selectively open up. To do so open your snap.docker profile.
+
+```
+sudo nano /var/lib/snapd/apparmor/profiles/snap.docker.docker
+```
+
+And add the line.
+```
+/home/ubuntu/.cache/bazel/** r,
+```
+
+After you edit the file, you'll need to update apparmor.
+```
+sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.docker.docker
+```
+
+You should then be able to install and run the local network without root privelages.
