@@ -13,10 +13,12 @@ description: "General information on the Zond Testnet"
 
 Our documentation includes two sections: Zond BUIDL Preview and Beta Testnet. 
 
-- **Betanet** has been running for over a year. 
+- **Betanet** our beta-testnet that has been running for over a year. 
 - **Zond BUIDL Preview** represents the next evolution, transitioning our beta-testnet to a full testnet environment.
 
-Built upon Ethereum's foundation, Zond BUIDL Preview introduces the Zond Virtual Machine (ZVM), similar to Hyperion, featuring a post-quantum secure address space powered by Dilithium. This allows developers to leverage their existing Ethereum tools and workflows while benefiting from a critical upgrade: quantum-resistant security.  Build with confidence, knowing your applications are protected from the looming threat of quantum attacks.
+Built upon Ethereum's foundation, Zond BUIDL Preview introduces the Zond Virtual Machine (ZVM)(an EVM fork), and Hyperion (a Solidity fork) and features a post-quantum secure address space powered by Dilithium & XMSS. 
+
+This allows developers to leverage their existing Ethereum tools and workflows while benefiting from a critical upgrade: quantum-resistant security. Build with confidence, knowing your applications are protected from the looming threat of quantum attacks.
 
 **Key Features of Zond BUIDL Preview:**
 
