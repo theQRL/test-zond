@@ -57,7 +57,7 @@ bash ./scripts/local_testnet/start_local_testnet.sh
 To stop
 
 ```bash
-bash ./scripts/local_testnet/start_local_testnet.sh
+bash ./scripts/local_testnet/stop_local_testnet.sh
 ```
 
 To test the private test network (replace the MAPPED_PORT in the following with port that is mapped to 8545 that you see after running previous step which is Step 2. Start the private test network).
