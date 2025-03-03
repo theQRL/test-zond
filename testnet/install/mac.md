@@ -18,30 +18,18 @@ Tested on MacOS Sequoia Version 15.3.1 (Apple Silicon)
 
 Getting started with the Zond testnet Local system
 
-## 1. Install prerequisits 
+## 1. Install prerequisites 
 
-If you haven't done so already, install brew, then install [docker](https://docs.docker.com/desktop/setup/install/mac-install/) and other prerequesits with brew.
-
-```bash
-brew install bazel@7 kurtosis-tech/tap/kurtosis-cli jq yq
-```
-
-Be sure to add bazel 7.5.0 to your path.
+If you haven't done so already, install brew, then install [docker](https://docs.docker.com/desktop/setup/install/mac-install/) and other prerequesites with brew.
 
 ```bash
-echo 'export PATH="/opt/homebrew/opt/bazel@7/bin:$PATH"' >> ~/.zshrc
+brew install bazelisk kurtosis-tech/tap/kurtosis-cli jq yq
 ```
 
 ## 2. Clone the repo & cd into it
 
 ```bash
 git clone https://github.com/theQRL/qrysm -b dev && cd qrysm
-```
-
-And replace the version in .bazelversion
-
-```bash
-echo '7.5.0' > ../qrysm/.bazelversion
 ```
 
 ## 3. Running & testing the local Local Private Network
@@ -63,7 +51,7 @@ bash ./scripts/local_testnet/stop_local_testnet.sh
 To test the private test network (replace the MAPPED_PORT in the following with port that is mapped to 8545 that you see after running previous step which is Step 2. Start the private test network).
 
 ```bash
-curl http://127.0.0.1:MAPPED_PORT/   -X POST   -H "Content-Type: application/json"   --data '{"method":"zond_getBlockByNumber","params":["latest", false],"id":1,"jsonrpc":"2.0"}' | jq -e
+curl http://127.0.0.1:MAPPED_PORT/ -X POST -H "Content-Type: application/json" --data '{"method":"zond_getBlockByNumber","params":["latest", false],"id":1,"jsonrpc":"2.0"}' | jq -e
 ```
 
 :::info Pro-tip: 
