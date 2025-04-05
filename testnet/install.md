@@ -12,7 +12,7 @@ features:
     link: /testnet/install/windows
   - title: Linux
     details: Installations instructions for Linux
-    link: /testnet/install/linux-ubuntu
+    link: /testnet/install/linux
   - title: Mac
     details: Installations instructions for Mac
     link: /testnet/install/mac

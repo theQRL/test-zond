@@ -1,0 +1,2 @@
+/install /testnet/install/linux
+/beta-testnet/* /testnet 301!
