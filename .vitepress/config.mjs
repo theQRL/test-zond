@@ -24,34 +24,30 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: "Zond BUIDL Preview",
+        text: "Zond Testnet",
         activeMatch: '/testnet/',
         items: [
           { text: "Getting Started", link: "/testnet/get-started"},
           { text: "Install", items: [
-            { text: "Linux (Ubuntu)", link: "/testnet/install/linux-ubuntu" },
+            { text: "Linux", link: "/testnet/install/linux" },
             { text: "Mac", link: "/testnet/install/mac" },
             { text: "Windows", link: "/testnet/install/windows" },
             ], 
           },
-          { text: "Usage", items: [
-                { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
-                { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
-                { text: "dApp Example", link: "/testnet/usage/dapp-example" }
-            ], 
-          }
-        ],
-      },
-      {
-        text: "Betanet",
-        activeMatch: '/beta-testnet/',
-        items: [
-          { text: "Running", link: "/beta-testnet/running" },
-          { text: "Getting synced", link: "/beta-testnet/syncing" },
-          { text: "Creating a wallet", link: "/beta-testnet/creating-wallet" },
-          { text: "Making a transaction", link: "/beta-testnet/transaction" },
-          { text: "Staking/Unstaking", link: "/beta-testnet/staking" },
-          { text: "Smart Contracts", link: "/beta-testnet/smart-contracts"},
+          { text: "Running", items: [
+            { text: "Linux", link: "/testnet/running/linux" },
+            { text: "Mac", link: "/testnet/running/mac" }
+          ], 
+          },
+          { 
+            text: "Usage", 
+            items: [
+              { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
+              { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
+              { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
+              { text: "dApp Example", link: "/testnet/usage/dapp-example" }
+            ]
+           }
         ],
       },
       {
@@ -101,22 +97,27 @@ export default defineConfig({
       // shows when the viewer is in the /testnet/ directory
       '/testnet/': [
         {
-          text: "Zond Testnet BUIDL Preview",
+          text: "Zond Testnet V1",
           items: [
             { text: "Getting Started", link: "/testnet/get-started"},
             { 
               text: "Install", 
               items: [
-                { text: "Linux (Ubuntu)", link: "/testnet/install/linux-ubuntu" },
+                { text: "Linux", link: "/testnet/install/linux" },
                 { text: "Mac", link: "/testnet/install/mac" },
                 { text: "Windows", link: "/testnet/install/windows" },
               ]
              },
-
+             { text: "Running", items: [
+              { text: "Linux", link: "/testnet/running/linux" },
+              { text: "Mac", link: "/testnet/running/mac" }
+            ], 
+            },
             { 
               text: "Usage", 
               items: [
                 { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
+                { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
                 { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
                 { text: "dApp Example", link: "/testnet/usage/dapp-example" }
               ]

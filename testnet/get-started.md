@@ -11,23 +11,14 @@ description: "General information on the Zond Testnet"
 
 {{ $frontmatter.description}}
 
-Our documentation includes two sections: Zond BUIDL Preview and Beta Testnet. 
-
-- **Betanet** our beta-testnet that has been running for over a year. 
-- **Zond BUIDL Preview** represents the next evolution, transitioning our beta-testnet to a full testnet environment.
-
-Built upon Ethereum's foundation, Zond BUIDL Preview introduces the Zond Virtual Machine (ZVM)(an EVM fork), and Hyperion (a Solidity fork) and features a post-quantum secure address space powered by Dilithium & XMSS. 
-
-This allows developers to leverage their existing Ethereum tools and workflows while benefiting from a critical upgrade: quantum-resistant security. Build with confidence, knowing your applications are protected from the looming threat of quantum attacks.
-
-**Key Features of Zond BUIDL Preview:**
+**Key Features of Zond Testnet V1:**
 
 *   **Post-Quantum Security:** Protect your applications from quantum attacks.
 *   **EVM Compatibility:** Seamlessly integrate with existing Ethereum tools and infrastructure.
 *   **Web3-Ready:** Build the next generation of decentralized applications with confidence.
 *   **Developer-Friendly:** Utilize your existing skills and favorite tools to create quantum-safe solutions.
 
-Developers can run a full Private Zond Testnet Preview network locally, providing a hands-on experience with the successor to our long-running Project Zond beta-testnet.
+Developers can run a full Private Zond Testnet network, providing a hands-on experience with the successor to our long-running Zond beta-testnet, which was ongoing for a year.
 
 To balance different security needs, Zond employs both stateful and stateless signature schemes:
 

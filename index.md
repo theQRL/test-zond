@@ -21,12 +21,9 @@ hero:
       link: /reporting
 
 features:
-  - title: Zond Testnet <span v-pre>#BUIDL preview</span v-pre>
+  - title: Zond Testnet V1
     details: Get started with the latest Zond testnet network
     link: /testnet
-  - title: Zond Beta-Testnet
-    details: Documentation for the long standing Zond Beta-Testnet 
-    link: /beta-testnet/beta-testnet
   - title: Reporting
     details: Report issues, get help, and connect to the core Zond team
     link: /reporting

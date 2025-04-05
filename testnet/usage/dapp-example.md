@@ -12,4 +12,4 @@ description: "Create a simple dApp application to run on a local testnet."
 
 ### Guide
 
-1. Follow readme over here: https://github.com/theQRL/zond-web3-wallet-dapp-example
+Follow readme over here: https://github.com/theQRL/zond-web3-wallet-dapp-example
