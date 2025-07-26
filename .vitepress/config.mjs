@@ -32,6 +32,7 @@ export default defineConfig({
             { text: "Linux", link: "/testnet/install/linux" },
             { text: "Mac", link: "/testnet/install/mac" },
             { text: "Windows", link: "/testnet/install/windows" },
+            { text: "Private Network", link: "/testnet/install/private-network" },
             ], 
           },
           { text: "Running", items: [
@@ -45,7 +46,8 @@ export default defineConfig({
               { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
               { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
               { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
-              { text: "dApp Example", link: "/testnet/usage/dapp-example" }
+              { text: "dApp Example", link: "/testnet/usage/dapp-example" },
+              { text: "Kurtosis", link: "/testnet/usage/kurtosis" }
             ]
            }
         ],
@@ -106,6 +108,7 @@ export default defineConfig({
                 { text: "Linux", link: "/testnet/install/linux" },
                 { text: "Mac", link: "/testnet/install/mac" },
                 { text: "Windows", link: "/testnet/install/windows" },
+                { text: "Private Network", link: "/testnet/install/private-network" },
               ]
              },
              { text: "Running", items: [
@@ -119,7 +122,8 @@ export default defineConfig({
                 { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
                 { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
                 { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
-                { text: "dApp Example", link: "/testnet/usage/dapp-example" }
+                { text: "dApp Example", link: "/testnet/usage/dapp-example" },
+                { text: "Kurtosis", link: "/testnet/usage/kurtosis" }
               ]
              },
 
