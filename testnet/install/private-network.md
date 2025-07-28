@@ -22,7 +22,7 @@ The QRL [`qrysm`](https://github.com/theqrl/qrysm) package contains scripts that
 
 1. Install [yq](https://github.com/mikefarah/yq). If you are on Ubuntu, you can install `yq` by running `snap install yq`.
 
-1. Download the QRL qrysm Package using GitHub. `git clone https://github.com/theqrl/qrysm`. The startup sccripts and Kurtosis configuration files can be found in `qrysm/scripts/local_testnet` directory.
+1. Download the QRL qrysm Package using GitHub. `git clone https://github.com/theqrl/qrysm`. The startup scripts and Kurtosis configuration files can be found in `qrysm/scripts/local_testnet` directory.
 
 ## Building and Running
 
