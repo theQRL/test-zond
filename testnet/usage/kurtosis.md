@@ -22,7 +22,7 @@ The Kurtosis Zond package will also work the same way over on Kubernetes. More i
 
 ## QRL Zond-Package Info
 
-Built from the great work over at kurtosis.com the QRL `zond-package` will spin up a private Zond testnet using Docker or Kubernetes with multi-client support, Flashbot's mev-boost infrastructure for PBS-related testing/validation, and other useful network tools (*transaction spammer, monitoring tools, etc.*). Kurtosis packages are entirely reproducible and composable, so this will work the same way over Docker or Kubernetes, in the cloud or locally on your machine.
+Built from the great work over at [kurtosis.com](https://kurtosis.com) the QRL `zond-package` will spin up a private Zond testnet using Docker or Kubernetes with multi-client support, Flashbot's mev-boost infrastructure for PBS-related testing/validation, and other useful network tools (*transaction spammer, monitoring tools, etc.*). Kurtosis packages are entirely reproducible and composable, so this will work the same way over Docker or Kubernetes, in the cloud or locally on your machine.
 
 This gives the ability to control the development environment without external complications. Designed to be used for testing, validation and development of QRL project Zond clients and software, and is not intended for production use.
 
