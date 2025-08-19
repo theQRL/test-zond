@@ -57,7 +57,11 @@ git clone https://github.com/theQRL/qrysm.git
 
 ## Build Zond binaries
 
-First, make sure you're using `golang 1.21.5` by running `gobrew use 1.21.5`.
+First, make sure you're using `golang 1.21.5` 
+
+```bash
+gobrew use 1.21.5
+```
 
 ### Gzond (Execution Layer)
 
@@ -65,7 +69,7 @@ Gzond is the official Golang execution layer implementation of the Zond protocol
 
 ``` bash
 cd go-zond/
-make gzond
+make all
 cp build/bin/gzond ../
 cd ..
 ```
