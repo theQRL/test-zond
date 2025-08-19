@@ -22,13 +22,15 @@ The QRL [`qrysm`](https://github.com/theqrl/qrysm) package contains scripts that
 
 1. Install [yq](https://github.com/mikefarah/yq). If you are on Ubuntu, you can install `yq` by running `snap install yq`.
 
-1. Download the QRL qrysm Package using GitHub. `git clone https://github.com/theqrl/qrysm`. The startup sccripts and Kurtosis configuration files can be found in `qrysm/scripts/local_testnet` directory.
+1. Download the QRL qrysm Package using GitHub. `git clone https://github.com/theqrl/qrysm`. The startup scripts and Kurtosis configuration files can be found in `qrysm/scripts/local_testnet` directory.
 
 ## Building and Running
 
 
 
 Running `qrysm/scripts/local_testnet/start_local_testnet.sh` will build the `gzond` execution node, `qrysm` consensus node, and `qrysm` validator node binaries, will generate the genesis information and bootstrap everything together.
+
+:::details Private Network Architecture 
 
 ```
                   ========================================
@@ -59,6 +61,7 @@ LEGEND:
 [4] Execution P2P: Execution nodes connect to each other to gossip transactions.
 --------------------------------------------------------------------
 ```
+:::
 
 :::info Configuration Options
 This script will reference the configuration options declared in `qrysm/scripts/local_testnet/network_params.yml`. For a full reference to all configuration options and additional functions see the [Kurtosis guide](/testnet/usage/kurtosis).
@@ -71,7 +74,7 @@ To start a testnet, from the Qrysm root repository:
 cd ./scripts/local_testnet
 ./start_local_testnet.sh
 ```
-You will see a list of services running and "Started!" at the end. The provate network is running and blocks are syncing.
+You will see a list of services running and "Started!" at the end. The private network is running and blocks are syncing.
 
 
 To view all running services:
@@ -102,7 +105,7 @@ cd ./scripts/local_testnet
 ./stop_local_testnet.sh
 ```
 
-This will stop all running docker services, distroy the local encclave and stop the Kurtosis engine. Once complete you will see "Local testnet stopped.". 
+This will stop all running docker services, distroy the local enclave and stop the Kurtosis engine. Once complete you will see "Local testnet stopped.". 
 
 
 ## CLI options

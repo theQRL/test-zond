@@ -13,7 +13,7 @@ description: "This page contains instructions for running the Zond Testnet V1 On
 
 Download the ``config.yml`` and ``genesis.ssz`` files from the [go-zond-metadata repository](https://github.com/theQRL/go-zond-metadata/raw/refs/heads/main/testnet/testnetv1/) to the same directory as your `gzond` executable.
 
-```
+```bash
 wget https://github.com/theQRL/go-zond-metadata/raw/refs/heads/main/testnet/testnetv1/genesis.ssz
 wget https://raw.githubusercontent.com/theQRL/go-zond-metadata/refs/heads/main/testnet/testnetv1/config.yml
 ```
@@ -36,8 +36,9 @@ wget https://raw.githubusercontent.com/theQRL/go-zond-metadata/refs/heads/main/t
 ```bash
 ./beacon-chain \
   --datadir=beacondata \
-  --min-sync-peers=1 \
+  --min-sync-peers=0 \
   --genesis-state=genesis.ssz \
+  --bootstrap-node= \
   --chain-config-file=config.yml \
   --config-file=config.yml \
   --chain-id=32382 \
@@ -47,8 +48,12 @@ wget https://raw.githubusercontent.com/theQRL/go-zond-metadata/refs/heads/main/t
   --contract-deployment-block=0 \
   --minimum-peers-per-subnet=0 \
   --p2p-static-id \
-  --bootstrap-node "enr:-MK4QNgAIppgu1ZjcrJNXuM1yut3z9JNDuk6bpllU2tp9tQNWzbry915_LpT2VNItZ22h9yEyYo5IQOGQc5vcq4j_taGAZXXC9joh2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC0g6p2Jc2VjcDI1NmsxoQIhBcsnDFoKva4aeNktuAxWb7IxY948okJ1bpv20P_MGYhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A" \
-  --bootstrap-node "enr:-MK4QGDGiGPBWgTiJ_cpoRpC6asB8jZM9c4f2TcMNxxZXeXrSKnjt-JOg5-Cy0F4XH9tMueLonODJtOu8E-UO6-9OWmGAZXXDBrIh2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC1MJ0KJc2VjcDI1NmsxoQNPBaBuj93C-yFVRC4mWoK315QM9O0SWdf741t3sbPtNIhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A"
+  --suggested-fee-recipient=Z20e526833d2ab5bd20de64cc00f2c2c7a07060bf \
+  --bootstrap-node "enr:-MK4QM50zz3VrN3RgofTTWvFJaZx8fqPrebXtRPrfPma95LABun96pdS48x2vbs3tjjsba6hoTfJP60Jx5g68cjIGjGGAZiJNUY3h2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC0g6p2Jc2VjcDI1NmsxoQJXCfi0hbGBlSV7exFKsa4iPU41kqSjXvxoTJd9bYwjGohzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A" \
+  --bootstrap-node "enr:-MK4QKoucVoW4hO3nKFPXj1gyYq5_8T1NCpioRMTeFrOdX3IQk6j11_jeYCJ0r3FysBTv831YcuK1wKXfZJE81go7uWGAZiJNeqGh2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC1MJ0KJc2VjcDI1NmsxoQPp77MwBxOSTTwLPYUci16GSPW9_6tcK1Dj7yDVh87xvIhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A" \
+  --verbosity debug \
+  --log-file beacon.log \
+  --log-format text
 ```
 
 ::: info TIP
