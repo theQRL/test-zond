@@ -9,8 +9,16 @@ description: "API reference for the QRL Beacon Node"
 
 {{ $frontmatter.description}}
 
-::: info
-"Try it out" requires a local beacon node running on `http://localhost:3500`.
+::: info Connecting to your node
+Enter your node's URL in the server dropdown below to use "Try it out". The default is `http://localhost:3500`.
+
+Your node must be started with CORS enabled for browser requests to work:
+
+```bash
+--grpc-gateway-corsdomain "*"
+```
+
+Add this flag to your beacon-chain startup command. Only use `"*"` on private or local networks. On public-facing nodes, restrict to specific origins to prevent unauthorized access to your API endpoint.
 :::
 
 <script setup>

@@ -33,7 +33,8 @@ onUnmounted(() => {
 
 <style scoped>
 .revision-banner {
-  background-color: var(--vp-c-warning-soft);
+  background-color: var(--vp-c-bg);
+  background-image: linear-gradient(var(--vp-c-warning-soft), var(--vp-c-warning-soft));
   color: var(--vp-c-warning-1);
   text-align: center;
   padding: 8px 16px;

@@ -3,11 +3,17 @@
   "info": {
     "title": "QRL JSON-RPC API",
     "version": "1.0.0",
-    "description": "This is the documentation for the QRL JSON-RPC API\n"
+    "description": "JSON-RPC API for the gqrl execution layer. All methods are POST requests with a JSON-RPC 2.0 payload.\n\nSet your node's URL in the server dropdown above, then use \"Try it out\" to send requests.\n"
   },
   "servers": [
     {
-      "url": "http://localhost:8545"
+      "url": "{server_url}",
+      "variables": {
+        "server_url": {
+          "description": "gqrl JSON-RPC endpoint",
+          "default": "http://localhost:8545"
+        }
+      }
     }
   ],
   "paths": {
