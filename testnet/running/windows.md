@@ -14,7 +14,7 @@ description: "This page contains instructions for running the QRL 2.0 Testnet V2
 Download the ``config.yml`` and ``genesis.ssz`` files from the [go-qrl-metadata repository](https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/) to the same directory as your `gqrl.exe` executable.
 
 ```cmd
-curl -LO https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/genesis.ssz
+curl -L -o https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/genesis.ssz
 curl -LO https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/config.yml
 ```
 
