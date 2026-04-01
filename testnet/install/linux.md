@@ -63,9 +63,9 @@ First, make sure you're using `golang 1.25`
 gobrew use 1.25
 ```
 
-### Gzond (Execution Layer)
+### gqrl (Execution Layer)
 
-GZond is the official Golang execution layer implementation of the QRL 2.0 protocol.
+gqrl is the official Golang execution layer implementation of the QRL 2.0 protocol.
 
 ``` bash
 cd go-zond/

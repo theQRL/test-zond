@@ -39,9 +39,9 @@ git clone https://github.com/theQRL/qrysm.git
 
 ## Build QRL 2.0 binaries
 
-### Gzond (Execution Layer)
+### gqrl (Execution Layer)
 
-GZond is the official Golang execution layer implementation of the QRL 2.0 protocol.
+gqrl is the official Golang execution layer implementation of the QRL 2.0 protocol.
 
 ```cmd
 cd go-zond

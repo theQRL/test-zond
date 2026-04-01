@@ -58,10 +58,6 @@ beacon-chain.exe ^
 You might want to save these to different `.bat` files for easier reference (ie `1-gqrl.bat`, `2-beacon.bat`)
 :::
 
-## Testing
+## Next steps
 
-You can run the following command to get the recent block height
-
-```cmd
-curl -X POST -H "Content-Type: application/json" --data "{\"jsonrpc\":\"2.0\",\"method\":\"qrl_blockNumber\",\"params\":[],\"id\":1}" http://127.0.0.1:8545
-```
+Once your node is running, check out the [Checking Status](/testnet/usage/checking-status) page to verify everything is syncing correctly.

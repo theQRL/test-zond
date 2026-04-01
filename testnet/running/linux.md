@@ -67,11 +67,7 @@ wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/te
 You might want to save this to different files for easier reference (ie `1-gqrl.sh`, `2-beacon.sh`)
 :::
 
-## Testing
+## Next steps
 
-You can run the following command to get the recent block height
-
-```
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"qrl_blockNumber","params":[],"id":1}' http://127.0.0.1:8545
-```
+Once your node is running, check out the [Checking Status](/testnet/usage/checking-status) page to verify everything is syncing correctly.
 

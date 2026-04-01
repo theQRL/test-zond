@@ -13,7 +13,7 @@ These instructions are pending upstream releases of the `qrl-package` and `qrled
 
 The QRL 2.0 testnet can be setup in a local private network allowing developers looking to develop a dApp, roll-ups, L2's, bridges, multi-chain relay etc. full control of the testing environment and all of the ancillary services related.
 
-This guide and accompanying [Private Network installation docs](/testnet/install/private-network) will help you setup fully functional test environment, consisting of execution layer `GQrl` nodes, consensus `Qrysm` clients and validators, all using Kurtosis in a stand alone private network tailored to your needs.  
+This guide and accompanying [Private Network installation docs](/testnet/install/private-network) will help you setup fully functional test environment, consisting of execution layer `gqrl` nodes, consensus `Qrysm` clients and validators, all using Kurtosis in a stand alone private network tailored to your needs.  
 
 ## Prerequisites 
 

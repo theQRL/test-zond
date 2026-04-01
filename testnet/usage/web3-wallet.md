@@ -17,4 +17,4 @@ Currently tested only in google chrome
 
 ### Guide
 
-1. Follow readme over here: https://github.com/theQRL/zond-web3-wallet
+1. Follow readme over here: https://github.com/theQRL/qrl-web3-wallet
