@@ -5,7 +5,7 @@ footer: true
 title: 'Documentation'
 
 hero:
-  name: "QRL 2.0"
+  name: "QRL 2.0 Testnet"
   text: Documentation
   tagline: Build with the next evolution of post-quantum secure distributed ledger technology
 #  image:
