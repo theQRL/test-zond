@@ -9,6 +9,10 @@ description: "How to check the status of your QRL 2.0 node"
 
 {{ $frontmatter.description}}
 
+::: tip First run
+It can take several minutes, occasionally longer, for blocks to start arriving on the first run.
+:::
+
 ## Get the current block height
 
 Query the execution engine for the latest block number:
