@@ -1,9 +1,9 @@
 ---
 layout: home
 title: "Testnet Installation"
-description: "Zond Testnet installation documentation"
+description: "QRL 2.0 Testnet usage documentation"
 hero:
-  name: "Zond Testnet Installation"
+  name: "QRL 2.0 Testnet Usage"
   tagline: "Installation guides to get started"
 
 features:

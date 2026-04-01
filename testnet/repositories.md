@@ -22,4 +22,4 @@ outline: deep
 - Our blog: https://www.theqrl.org/blog
 - Discord: https://www.theqrl.org/discord
 - Telegram: https://www.theqrl.org/telegram
-- Project Zond Roadmap: https://www.theqrl.org/roadmap/#project-zond
+- QRL 2.0 Roadmap: https://www.theqrl.org/roadmap/#project-zond

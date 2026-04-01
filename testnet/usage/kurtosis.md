@@ -1,37 +1,40 @@
 ---
 layout: doc
 outline: deep
-title: "Private Zond Network with Kurtosis "
+title: "Private QRL 2.0 Network with Kurtosis"
 description: ""
 ---
 
 # {{ $frontmatter.title}}
 
+::: warning Kurtosis Package Update Pending
+These instructions are pending upstream releases of the `qrl-package` and `qrledger/qrysm` Docker images. The current published images have compatibility issues with the genesis config fields and beacon-chain flags. This page will be updated once new images are available.
+:::
 
-The QRL project Zond testnet can be setup in a local private network allowing developers looking to develop a dApp, roll-ups, L2's, bridges, multi-chain relay etc. full control of the testing environment and all of the ancillary services related.
+The QRL 2.0 testnet can be setup in a local private network allowing developers looking to develop a dApp, roll-ups, L2's, bridges, multi-chain relay etc. full control of the testing environment and all of the ancillary services related.
 
-This guide and accompanying [Private Network installation docs](/testnet/install/private-network) will help you setup fully functional test environment, consisting of execution layer `GZond` nodes, consensus `Qrysm` clients and validators, all using Kurtosis in a stand alone private network tailored to your needs.  
+This guide and accompanying [Private Network installation docs](/testnet/install/private-network) will help you setup fully functional test environment, consisting of execution layer `gqrl` nodes, consensus `Qrysm` clients and validators, all using Kurtosis in a stand alone private network tailored to your needs.  
 
 ## Prerequisites 
 
 The following assumes that you have followed the guide to run a [Private QRL Network](/testnet/install/private-network) and have a functional Kurtosis and docker install. 
 
 :::info Run On Kubernetes
-The Kurtosis Zond package will also work the same way over on Kubernetes. More information can be found in the [QRL zond-package GitHub docs](https://github.com/theQRL/zond-package?tab=readme-ov-file#run-on-kubernetes)
+The Kurtosis QRL 2.0 package will also work the same way over on Kubernetes. More information can be found in the [QRL qrl-package GitHub docs](https://github.com/theQRL/qrl-package?tab=readme-ov-file#run-on-kubernetes)
 :::
 
-## QRL Zond-Package Info
+## QRL qrl-package Info
 
-Built from the great work over at [kurtosis.com](https://kurtosis.com) the QRL `zond-package` will spin up a private Zond testnet using Docker or Kubernetes with multi-client support, Flashbot's mev-boost infrastructure for PBS-related testing/validation, and other useful network tools (*transaction spammer, monitoring tools, etc.*). Kurtosis packages are entirely reproducible and composable, so this will work the same way over Docker or Kubernetes, in the cloud or locally on your machine.
+Built from the great work over at [kurtosis.com](https://kurtosis.com) the QRL `qrl-package` will spin up a private QRL 2.0 testnet using Docker or Kubernetes with multi-client support, Flashbot's mev-boost infrastructure for PBS-related testing/validation, and other useful network tools (*transaction spammer, monitoring tools, etc.*). Kurtosis packages are entirely reproducible and composable, so this will work the same way over Docker or Kubernetes, in the cloud or locally on your machine.
 
-This gives the ability to control the development environment without external complications. Designed to be used for testing, validation and development of QRL project Zond clients and software, and is not intended for production use.
+This gives the ability to control the development environment without external complications. Designed to be used for testing, validation and development of QRL 2.0 clients and software, and is not intended for production use.
 
 ### Defaults and Initial Settings
 
-Running the `start_local_testnet.sh` will generate all of the necessary genesis information, build and bootstrap a network of QRL project Zond nodes
+Running the `start_local_testnet.sh` will generate all of the necessary genesis information, build and bootstrap a network of QRL 2.0 nodes
 
-1. Generate Execution Layer (EL) & Consensus Layer (CL) genesis information using [the Zond genesis generator](https://github.com/theQRL/zond-genesis-generator).
-2. Configure & bootstrap a network of Zond nodes of *n* size using the genesis data generated above
+1. Generate Execution Layer (EL) & Consensus Layer (CL) genesis information using [the zond-genesis-generator](https://github.com/theQRL/zond-genesis-generator).
+2. Configure & bootstrap a network of QRL 2.0 nodes of *n* size using the genesis data generated above
 3. Spin up a [transaction spammer](https://github.com/MariusVanDerWijden/tx-fuzz) to send fake transactions to the network
 4. Spin up and connect a [testnet verifier](https://github.com/ethereum/merge-testnet-verifier)
 5. Spin up a Grafana and Prometheus instance to observe the network
@@ -39,7 +42,7 @@ Running the `start_local_testnet.sh` will generate all of the necessary genesis 
 Additionally, there are optional features that can be enabled bringing further functionality. These are enabled via flags or parameter files at runtime.
 
 - Block until the Beacon nodes finalize an epoch (i.e. finalized_epoch > 0)
-- Spin up & configure parameters for the infrastructure behind Flashbot's implementation of PBS using `mev-boost`, in either `full` or `mock` mode. More details [here](https://github.com/theQRL/zond-package/?tab=readme-ov-file#proposer-builder-separation-pbs-emulation).
+- Spin up & configure parameters for the infrastructure behind Flashbot's implementation of PBS using `mev-boost`, in either `full` or `mock` mode. More details [here](https://github.com/theQRL/qrl-package/?tab=readme-ov-file#proposer-builder-separation-pbs-emulation).
 - Spin up & connect the network to a [beacon metrics gazer service](https://github.com/dapplion/beacon-metrics-gazer) to collect network-wide participation metrics.
 - Spin up and connect a [JSON RPC Snooper](https://github.com/ethDreamer/json_rpc_snoop) to the network log responses & requests between the EL engine API and the CL client.
 - Specify extra parameters to be passed in for any of the: CL client Beacon, and CL client validator, and/or EL client containers
@@ -48,11 +51,11 @@ Additionally, there are optional features that can be enabled bringing further f
 
 #### Node Containers
 
-When deploying the QRL zond-package by default you will spin up and deploy an enclave locally containing 2 of each:
+When deploying the QRL qrl-package by default you will spin up and deploy an enclave locally containing 2 of each:
 
-- Execution Layer Nodes (`el-#-gzond-qrysm`)
-- Consensus Layer Nodes (` cl-#-qrysm-gzond`)
-- Validation enabled Consensus Nodes (`vc-#-gzond-qrysm `)  
+- Execution Layer Nodes (`el-#-gqrl-qrysm`)
+- Consensus Layer Nodes (` cl-#-qrysm-gqrl`)
+- Validation enabled Consensus Nodes (`vc-#-gqrl-qrysm `)  
 
 :::info 
 This behavior can be configured in the `network_params.yaml` file under `participants.count` which default is set to 2.
@@ -84,8 +87,8 @@ Flags:
 
 ========================================= Files Artifacts =========================================
 UUID           Name
-3ffcdc3d7520   1-qrysm-gzond-0-63
-5aa297072851   2-qrysm-gzond-64-127
+3ffcdc3d7520   1-qrysm-gqrl-0-63
+5aa297072851   2-qrysm-gqrl-64-127
 2141c67b8c24   el_cl_genesis_data
 6aeb5a7cafcf   final-genesis-timestamp
 6a761a3e555f   genesis-el-cl-env-file
@@ -96,33 +99,33 @@ cce61740d239   validator-ranges
 
 ========================================== User Services ==========================================
 UUID           Name                                             Ports                                         Status
-f3249da5cd1f   cl-1-qrysm-gzond                                 http: 3500/tcp -> http://127.0.0.1:32784      RUNNING
+f3249da5cd1f   cl-1-qrysm-gqrl                                 http: 3500/tcp -> http://127.0.0.1:32784      RUNNING
                                                                 metrics: 8080/tcp -> http://127.0.0.1:32787
                                                                 profiling: 6060/tcp -> 127.0.0.1:32786
                                                                 rpc: 4000/tcp -> 127.0.0.1:32785
                                                                 tcp-discovery: 13000/tcp -> 127.0.0.1:32788
                                                                 udp-discovery: 12000/udp -> 127.0.0.1:32770
-1dd98046504b   cl-2-qrysm-gzond                                 http: 3500/tcp -> http://127.0.0.1:32789      RUNNING
+1dd98046504b   cl-2-qrysm-gqrl                                 http: 3500/tcp -> http://127.0.0.1:32789      RUNNING
                                                                 metrics: 8080/tcp -> http://127.0.0.1:32792
                                                                 profiling: 6060/tcp -> 127.0.0.1:32791
                                                                 rpc: 4000/tcp -> 127.0.0.1:32790
                                                                 tcp-discovery: 13000/tcp -> 127.0.0.1:32793
                                                                 udp-discovery: 12000/udp -> 127.0.0.1:32771
-355566e78113   el-1-gzond-qrysm                                 engine-rpc: 8551/tcp -> 127.0.0.1:32776       RUNNING
+355566e78113   el-1-gqrl-qrysm                                 engine-rpc: 8551/tcp -> 127.0.0.1:32776       RUNNING
                                                                 metrics: 9001/tcp -> http://127.0.0.1:32777
                                                                 rpc: 8545/tcp -> 127.0.0.1:32774
                                                                 tcp-discovery: 30303/tcp -> 127.0.0.1:32778
                                                                 udp-discovery: 30303/udp -> 127.0.0.1:32768
                                                                 ws: 8546/tcp -> 127.0.0.1:32775
-9924787dbaa9   el-2-gzond-qrysm                                 engine-rpc: 8551/tcp -> 127.0.0.1:32781       RUNNING
+9924787dbaa9   el-2-gqrl-qrysm                                 engine-rpc: 8551/tcp -> 127.0.0.1:32781       RUNNING
                                                                 metrics: 9001/tcp -> http://127.0.0.1:32782
                                                                 rpc: 8545/tcp -> 127.0.0.1:32779
                                                                 tcp-discovery: 30303/tcp -> 127.0.0.1:32783
                                                                 udp-discovery: 30303/udp -> 127.0.0.1:32769
                                                                 ws: 8546/tcp -> 127.0.0.1:32780
 99eff6cbb5c4   validator-key-generation-cl-validator-keystore   <none>                                        RUNNING
-f2241347254b   vc-1-gzond-qrysm                                 metrics: 8080/tcp -> http://127.0.0.1:32794   RUNNING
-7485bdadc86f   vc-2-gzond-qrysm                                 metrics: 8080/tcp -> http://127.0.0.1:32795   RUNNING
+f2241347254b   vc-1-gqrl-qrysm                                 metrics: 8080/tcp -> http://127.0.0.1:32794   RUNNING
+7485bdadc86f   vc-2-gqrl-qrysm                                 metrics: 8080/tcp -> http://127.0.0.1:32795   RUNNING
 ```
 :::
 
@@ -139,211 +142,211 @@ kurtosis service logs local-testnet $SERVICE_NAME
 For example, to print the logs from the execution layer node #1:
 
 ```bash
-kurtosis service logs local-testnet el-1-gzond-qrysm
+kurtosis service logs local-testnet el-1-gqrl-qrysm
 ```
 :::details Example log output
 
 ```bash
-[el-1-gzond-qrysm] INFO [07-25|21:37:56.059] Imported new potential chain segment     number=538 hash=cbdc41..a3e240 blocks=1 txs=0 mgas=0.000 elapsed=1.658ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:37:56.137] Chain head was updated                   number=538 hash=cbdc41..a3e240 root=9fa53c..96e241 elapsed=1.301833ms
-[el-1-gzond-qrysm] INFO [07-25|21:37:56.138] Starting work on payload                 id=0xea80b5543c763835
-[el-1-gzond-qrysm] INFO [07-25|21:37:56.138] Updated payload                          id=0xea80b5543c763835 number=539 hash=5de6a4..43a040 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="103.171µs"
-[el-1-gzond-qrysm] INFO [07-25|21:38:05.776] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:15.791] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:25.808] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:35.826] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:45.842] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:55.859] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:38:56.051] Stopping work on payload                 id=0xea80b5543c763835 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:38:56.082] Imported new potential chain segment     number=539 hash=5de6a4..43a040 blocks=1 txs=0 mgas=0.000 elapsed=1.872ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:38:56.157] Chain head was updated                   number=539 hash=5de6a4..43a040 root=9fa53c..96e241 elapsed=1.239373ms
-[el-1-gzond-qrysm] INFO [07-25|21:39:05.875] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:15.891] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:24.809] Regenerated local transaction journal    transactions=0 accounts=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:25.905] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:35.921] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:45.938] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:55.952] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:39:56.086] Imported new potential chain segment     number=540 hash=0112b3..650d8f blocks=1 txs=0 mgas=0.000 elapsed=1.587ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:39:56.116] Chain head was updated                   number=540 hash=0112b3..650d8f root=9fa53c..96e241 elapsed=1.28824ms
-[el-1-gzond-qrysm] INFO [07-25|21:39:56.118] Starting work on payload                 id=0xf1345bff5c8efc1b
-[el-1-gzond-qrysm] INFO [07-25|21:39:56.119] Updated payload                          id=0xf1345bff5c8efc1b number=541 hash=b37c2f..930770 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="32.687µs"
-[el-1-gzond-qrysm] INFO [07-25|21:40:05.966] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:15.985] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:25.998] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:36.014] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:46.031] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:56.032] Stopping work on payload                 id=0xf1345bff5c8efc1b reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:40:56.046] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:40:56.064] Imported new potential chain segment     number=541 hash=b37c2f..930770 blocks=1 txs=0 mgas=0.000 elapsed=1.820ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:40:56.148] Chain head was updated                   number=541 hash=b37c2f..930770 root=9fa53c..96e241 elapsed=1.71938ms
-[el-1-gzond-qrysm] INFO [07-25|21:41:06.060] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:41:16.076] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:41:26.090] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:41:36.105] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:41:46.118] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:41:56.080] Imported new potential chain segment     number=542 hash=8ef2d8..41133d blocks=1 txs=0 mgas=0.000 elapsed=1.484ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:41:56.103] Chain head was updated                   number=542 hash=8ef2d8..41133d root=9fa53c..96e241 elapsed=1.5057ms
-[el-1-gzond-qrysm] INFO [07-25|21:41:56.105] Starting work on payload                 id=0x14a8cc731ceac302
-[el-1-gzond-qrysm] INFO [07-25|21:41:56.105] Updated payload                          id=0x14a8cc731ceac302 number=543 hash=64d56b..d53475 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="81.433µs"
-[el-1-gzond-qrysm] INFO [07-25|21:41:56.133] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:06.150] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:16.169] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:26.187] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:36.204] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:46.220] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.024] Stopping work on payload                 id=0x14a8cc731ceac302 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.055] Imported new potential chain segment     number=543 hash=64d56b..d53475 blocks=1 txs=0 mgas=0.000 elapsed=1.375ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.127] Chain head was updated                   number=543 hash=64d56b..d53475 root=9fa53c..96e241 elapsed=1.459538ms
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.129] Starting work on payload                 id=0xc2c575e0597980bb
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.129] Updated payload                          id=0xc2c575e0597980bb number=544 hash=9c6cfc..23fba0 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="43.359µs"
-[el-1-gzond-qrysm] INFO [07-25|21:42:56.234] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:06.251] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:16.264] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:26.281] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:36.294] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:46.310] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:43:56.037] Stopping work on payload                 id=0xc2c575e0597980bb reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:43:56.069] Imported new potential chain segment     number=544 hash=9c6cfc..23fba0 blocks=1 txs=0 mgas=0.000 elapsed=1.847ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:43:56.143] Chain head was updated                   number=544 hash=9c6cfc..23fba0 root=9fa53c..96e241 elapsed=1.373018ms
-[el-1-gzond-qrysm] INFO [07-25|21:43:56.325] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:06.341] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:16.356] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:26.372] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:36.387] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:46.403] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:44:56.082] Imported new potential chain segment     number=545 hash=ab4ba0..3462df blocks=1 txs=0 mgas=0.000 elapsed=1.634ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:44:56.107] Chain head was updated                   number=545 hash=ab4ba0..3462df root=9fa53c..96e241 elapsed=1.307494ms
-[el-1-gzond-qrysm] INFO [07-25|21:44:56.110] Starting work on payload                 id=0x44c1d4acec759082
-[el-1-gzond-qrysm] INFO [07-25|21:44:56.110] Updated payload                          id=0x44c1d4acec759082 number=546 hash=73686e..965ec5 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="63.058µs"
-[el-1-gzond-qrysm] INFO [07-25|21:44:56.420] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:06.437] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:16.453] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:26.470] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:36.485] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:46.500] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.031] Stopping work on payload                 id=0x44c1d4acec759082 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.066] Imported new potential chain segment     number=546 hash=73686e..965ec5 blocks=1 txs=0 mgas=0.000 elapsed=3.003ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.141] Chain head was updated                   number=546 hash=73686e..965ec5 root=9fa53c..96e241 elapsed=1.162419ms
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.142] Starting work on payload                 id=0x36765fa50f0d8bf0
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.143] Updated payload                          id=0x36765fa50f0d8bf0 number=547 hash=9108e6..6d6fb3 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="45.968µs"
-[el-1-gzond-qrysm] INFO [07-25|21:45:56.518] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:06.532] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:16.547] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:26.565] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:36.579] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:46.595] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:46:56.044] Stopping work on payload                 id=0x36765fa50f0d8bf0 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:46:56.076] Imported new potential chain segment     number=547 hash=9108e6..6d6fb3 blocks=1 txs=0 mgas=0.000 elapsed=2.694ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:46:56.152] Chain head was updated                   number=547 hash=9108e6..6d6fb3 root=9fa53c..96e241 elapsed=1.069959ms
-[el-1-gzond-qrysm] INFO [07-25|21:46:56.609] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:06.624] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:16.641] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:26.655] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:36.674] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:46.689] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:47:56.073] Imported new potential chain segment     number=548 hash=ec175e..70e8d4 blocks=1 txs=0 mgas=0.000 elapsed=1.651ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:47:56.102] Chain head was updated                   number=548 hash=ec175e..70e8d4 root=9fa53c..96e241 elapsed=2.501146ms
-[el-1-gzond-qrysm] INFO [07-25|21:47:56.707] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:06.721] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:16.734] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:26.751] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:36.768] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:46.784] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:48:56.070] Imported new potential chain segment     number=549 hash=7113c5..e028ee blocks=1 txs=0 mgas=0.000 elapsed=2.229ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:48:56.093] Chain head was updated                   number=549 hash=7113c5..e028ee root=9fa53c..96e241 elapsed=1.334577ms
-[el-1-gzond-qrysm] INFO [07-25|21:48:56.801] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:06.818] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:16.835] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:26.852] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:36.867] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:46.881] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:49:56.085] Imported new potential chain segment     number=550 hash=5ac713..87b19a blocks=1 txs=0 mgas=0.000 elapsed=2.012ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:49:56.109] Chain head was updated                   number=550 hash=5ac713..87b19a root=9fa53c..96e241 elapsed=1.629525ms
-[el-1-gzond-qrysm] INFO [07-25|21:49:56.897] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:06.913] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:16.930] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:26.946] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:36.962] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:46.977] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:50:56.083] Imported new potential chain segment     number=551 hash=cdf1e8..2702ac blocks=1 txs=0 mgas=0.000 elapsed=1.700ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:50:56.118] Chain head was updated                   number=551 hash=cdf1e8..2702ac root=9fa53c..96e241 elapsed=1.326853ms
-[el-1-gzond-qrysm] INFO [07-25|21:50:56.990] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:07.006] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:17.021] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:27.037] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:37.052] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:47.067] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:51:56.084] Imported new potential chain segment     number=552 hash=6afcca..17b27a blocks=1 txs=0 mgas=0.000 elapsed=2.063ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:51:56.110] Chain head was updated                   number=552 hash=6afcca..17b27a root=9fa53c..96e241 elapsed=2.616012ms
-[el-1-gzond-qrysm] INFO [07-25|21:51:56.112] Starting work on payload                 id=0x29e46403ad8aa8bb
-[el-1-gzond-qrysm] INFO [07-25|21:51:56.112] Updated payload                          id=0x29e46403ad8aa8bb number=553 hash=1ab502..bc16e1 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="51.901µs"
-[el-1-gzond-qrysm] INFO [07-25|21:51:57.083] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:07.096] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:17.109] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:27.123] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:37.140] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:47.154] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:52:56.027] Stopping work on payload                 id=0x29e46403ad8aa8bb reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:52:56.067] Imported new potential chain segment     number=553 hash=1ab502..bc16e1 blocks=1 txs=0 mgas=0.000 elapsed=2.485ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:52:56.141] Chain head was updated                   number=553 hash=1ab502..bc16e1 root=9fa53c..96e241 elapsed=1.206007ms
-[el-1-gzond-qrysm] INFO [07-25|21:52:57.170] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:07.184] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:17.200] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:27.216] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:37.232] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:47.249] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:53:56.079] Imported new potential chain segment     number=554 hash=47e385..e7abd5 blocks=1 txs=0 mgas=0.000 elapsed=1.524ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:53:56.107] Chain head was updated                   number=554 hash=47e385..e7abd5 root=9fa53c..96e241 elapsed=1.213167ms
-[el-1-gzond-qrysm] INFO [07-25|21:53:56.109] Starting work on payload                 id=0x038f3934a7b63b22
-[el-1-gzond-qrysm] INFO [07-25|21:53:56.110] Updated payload                          id=0x038f3934a7b63b22 number=555 hash=aa34eb..4ce004 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="36.356µs"
-[el-1-gzond-qrysm] INFO [07-25|21:53:57.265] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:07.279] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:17.294] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:27.309] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:37.326] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:47.342] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:54:56.038] Stopping work on payload                 id=0x038f3934a7b63b22 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:54:56.072] Imported new potential chain segment     number=555 hash=aa34eb..4ce004 blocks=1 txs=0 mgas=0.000 elapsed=4.063ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:54:56.143] Chain head was updated                   number=555 hash=aa34eb..4ce004 root=9fa53c..96e241 elapsed=1.076557ms
-[el-1-gzond-qrysm] INFO [07-25|21:54:57.355] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:07.369] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:17.384] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:27.403] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:37.419] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:47.435] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:55:56.072] Imported new potential chain segment     number=556 hash=89fc6e..99f184 blocks=1 txs=0 mgas=0.000 elapsed=1.899ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:55:56.101] Chain head was updated                   number=556 hash=89fc6e..99f184 root=9fa53c..96e241 elapsed=1.263273ms
-[el-1-gzond-qrysm] INFO [07-25|21:55:56.102] Starting work on payload                 id=0xd86a58d32bd49125
-[el-1-gzond-qrysm] INFO [07-25|21:55:56.103] Updated payload                          id=0xd86a58d32bd49125 number=557 hash=ef68f1..e8909b txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="32.977µs"
-[el-1-gzond-qrysm] INFO [07-25|21:55:57.450] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:07.466] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:17.483] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:27.498] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:37.512] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:47.526] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:56:56.042] Stopping work on payload                 id=0xd86a58d32bd49125 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:56:56.074] Imported new potential chain segment     number=557 hash=ef68f1..e8909b blocks=1 txs=0 mgas=0.000 elapsed=1.490ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:56:56.148] Chain head was updated                   number=557 hash=ef68f1..e8909b root=9fa53c..96e241 elapsed=1.31688ms
-[el-1-gzond-qrysm] INFO [07-25|21:56:56.150] Starting work on payload                 id=0x4c090122ae94a866
-[el-1-gzond-qrysm] INFO [07-25|21:56:56.150] Updated payload                          id=0x4c090122ae94a866 number=558 hash=65204c..0776e3 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="54.115µs"
-[el-1-gzond-qrysm] INFO [07-25|21:56:57.542] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:07.561] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:17.579] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:27.597] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:37.612] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:47.627] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:57:56.036] Stopping work on payload                 id=0x4c090122ae94a866 reason=delivery
-[el-1-gzond-qrysm] INFO [07-25|21:57:56.067] Imported new potential chain segment     number=558 hash=65204c..0776e3 blocks=1 txs=0 mgas=0.000 elapsed=1.453ms     mgasps=0.000 triedirty=0.00B
-[el-1-gzond-qrysm] INFO [07-25|21:57:56.141] Chain head was updated                   number=558 hash=65204c..0776e3 root=9fa53c..96e241 elapsed=1.262366ms
-[el-1-gzond-qrysm] INFO [07-25|21:57:56.143] Starting work on payload                 id=0x53af3ba1d984e47a
-[el-1-gzond-qrysm] INFO [07-25|21:57:56.143] Updated payload                          id=0x53af3ba1d984e47a number=559 hash=beab74..64fc22 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="87.412µs"
-[el-1-gzond-qrysm] INFO [07-25|21:57:57.643] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:58:07.658] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:58:17.678] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:58:27.693] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:58:37.708] Looking for peers                        peercount=1 tried=0 static=0
-[el-1-gzond-qrysm] INFO [07-25|21:58:47.724] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:37:56.059] Imported new potential chain segment     number=538 hash=cbdc41..a3e240 blocks=1 txs=0 mgas=0.000 elapsed=1.658ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:37:56.137] Chain head was updated                   number=538 hash=cbdc41..a3e240 root=9fa53c..96e241 elapsed=1.301833ms
+[el-1-gqrl-qrysm] INFO [07-25|21:37:56.138] Starting work on payload                 id=0xea80b5543c763835
+[el-1-gqrl-qrysm] INFO [07-25|21:37:56.138] Updated payload                          id=0xea80b5543c763835 number=539 hash=5de6a4..43a040 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="103.171µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:38:05.776] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:15.791] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:25.808] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:35.826] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:45.842] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:55.859] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:38:56.051] Stopping work on payload                 id=0xea80b5543c763835 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:38:56.082] Imported new potential chain segment     number=539 hash=5de6a4..43a040 blocks=1 txs=0 mgas=0.000 elapsed=1.872ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:38:56.157] Chain head was updated                   number=539 hash=5de6a4..43a040 root=9fa53c..96e241 elapsed=1.239373ms
+[el-1-gqrl-qrysm] INFO [07-25|21:39:05.875] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:15.891] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:24.809] Regenerated local transaction journal    transactions=0 accounts=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:25.905] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:35.921] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:45.938] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:55.952] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:39:56.086] Imported new potential chain segment     number=540 hash=0112b3..650d8f blocks=1 txs=0 mgas=0.000 elapsed=1.587ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:39:56.116] Chain head was updated                   number=540 hash=0112b3..650d8f root=9fa53c..96e241 elapsed=1.28824ms
+[el-1-gqrl-qrysm] INFO [07-25|21:39:56.118] Starting work on payload                 id=0xf1345bff5c8efc1b
+[el-1-gqrl-qrysm] INFO [07-25|21:39:56.119] Updated payload                          id=0xf1345bff5c8efc1b number=541 hash=b37c2f..930770 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="32.687µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:40:05.966] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:15.985] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:25.998] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:36.014] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:46.031] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:56.032] Stopping work on payload                 id=0xf1345bff5c8efc1b reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:40:56.046] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:40:56.064] Imported new potential chain segment     number=541 hash=b37c2f..930770 blocks=1 txs=0 mgas=0.000 elapsed=1.820ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:40:56.148] Chain head was updated                   number=541 hash=b37c2f..930770 root=9fa53c..96e241 elapsed=1.71938ms
+[el-1-gqrl-qrysm] INFO [07-25|21:41:06.060] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:41:16.076] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:41:26.090] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:41:36.105] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:41:46.118] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:41:56.080] Imported new potential chain segment     number=542 hash=8ef2d8..41133d blocks=1 txs=0 mgas=0.000 elapsed=1.484ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:41:56.103] Chain head was updated                   number=542 hash=8ef2d8..41133d root=9fa53c..96e241 elapsed=1.5057ms
+[el-1-gqrl-qrysm] INFO [07-25|21:41:56.105] Starting work on payload                 id=0x14a8cc731ceac302
+[el-1-gqrl-qrysm] INFO [07-25|21:41:56.105] Updated payload                          id=0x14a8cc731ceac302 number=543 hash=64d56b..d53475 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="81.433µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:41:56.133] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:06.150] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:16.169] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:26.187] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:36.204] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:46.220] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.024] Stopping work on payload                 id=0x14a8cc731ceac302 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.055] Imported new potential chain segment     number=543 hash=64d56b..d53475 blocks=1 txs=0 mgas=0.000 elapsed=1.375ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.127] Chain head was updated                   number=543 hash=64d56b..d53475 root=9fa53c..96e241 elapsed=1.459538ms
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.129] Starting work on payload                 id=0xc2c575e0597980bb
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.129] Updated payload                          id=0xc2c575e0597980bb number=544 hash=9c6cfc..23fba0 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="43.359µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:42:56.234] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:06.251] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:16.264] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:26.281] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:36.294] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:46.310] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:43:56.037] Stopping work on payload                 id=0xc2c575e0597980bb reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:43:56.069] Imported new potential chain segment     number=544 hash=9c6cfc..23fba0 blocks=1 txs=0 mgas=0.000 elapsed=1.847ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:43:56.143] Chain head was updated                   number=544 hash=9c6cfc..23fba0 root=9fa53c..96e241 elapsed=1.373018ms
+[el-1-gqrl-qrysm] INFO [07-25|21:43:56.325] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:06.341] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:16.356] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:26.372] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:36.387] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:46.403] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:44:56.082] Imported new potential chain segment     number=545 hash=ab4ba0..3462df blocks=1 txs=0 mgas=0.000 elapsed=1.634ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:44:56.107] Chain head was updated                   number=545 hash=ab4ba0..3462df root=9fa53c..96e241 elapsed=1.307494ms
+[el-1-gqrl-qrysm] INFO [07-25|21:44:56.110] Starting work on payload                 id=0x44c1d4acec759082
+[el-1-gqrl-qrysm] INFO [07-25|21:44:56.110] Updated payload                          id=0x44c1d4acec759082 number=546 hash=73686e..965ec5 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="63.058µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:44:56.420] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:06.437] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:16.453] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:26.470] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:36.485] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:46.500] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.031] Stopping work on payload                 id=0x44c1d4acec759082 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.066] Imported new potential chain segment     number=546 hash=73686e..965ec5 blocks=1 txs=0 mgas=0.000 elapsed=3.003ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.141] Chain head was updated                   number=546 hash=73686e..965ec5 root=9fa53c..96e241 elapsed=1.162419ms
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.142] Starting work on payload                 id=0x36765fa50f0d8bf0
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.143] Updated payload                          id=0x36765fa50f0d8bf0 number=547 hash=9108e6..6d6fb3 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="45.968µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:45:56.518] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:06.532] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:16.547] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:26.565] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:36.579] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:46.595] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:46:56.044] Stopping work on payload                 id=0x36765fa50f0d8bf0 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:46:56.076] Imported new potential chain segment     number=547 hash=9108e6..6d6fb3 blocks=1 txs=0 mgas=0.000 elapsed=2.694ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:46:56.152] Chain head was updated                   number=547 hash=9108e6..6d6fb3 root=9fa53c..96e241 elapsed=1.069959ms
+[el-1-gqrl-qrysm] INFO [07-25|21:46:56.609] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:06.624] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:16.641] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:26.655] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:36.674] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:46.689] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:47:56.073] Imported new potential chain segment     number=548 hash=ec175e..70e8d4 blocks=1 txs=0 mgas=0.000 elapsed=1.651ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:47:56.102] Chain head was updated                   number=548 hash=ec175e..70e8d4 root=9fa53c..96e241 elapsed=2.501146ms
+[el-1-gqrl-qrysm] INFO [07-25|21:47:56.707] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:06.721] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:16.734] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:26.751] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:36.768] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:46.784] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:48:56.070] Imported new potential chain segment     number=549 hash=7113c5..e028ee blocks=1 txs=0 mgas=0.000 elapsed=2.229ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:48:56.093] Chain head was updated                   number=549 hash=7113c5..e028ee root=9fa53c..96e241 elapsed=1.334577ms
+[el-1-gqrl-qrysm] INFO [07-25|21:48:56.801] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:06.818] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:16.835] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:26.852] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:36.867] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:46.881] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:49:56.085] Imported new potential chain segment     number=550 hash=5ac713..87b19a blocks=1 txs=0 mgas=0.000 elapsed=2.012ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:49:56.109] Chain head was updated                   number=550 hash=5ac713..87b19a root=9fa53c..96e241 elapsed=1.629525ms
+[el-1-gqrl-qrysm] INFO [07-25|21:49:56.897] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:06.913] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:16.930] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:26.946] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:36.962] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:46.977] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:50:56.083] Imported new potential chain segment     number=551 hash=cdf1e8..2702ac blocks=1 txs=0 mgas=0.000 elapsed=1.700ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:50:56.118] Chain head was updated                   number=551 hash=cdf1e8..2702ac root=9fa53c..96e241 elapsed=1.326853ms
+[el-1-gqrl-qrysm] INFO [07-25|21:50:56.990] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:07.006] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:17.021] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:27.037] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:37.052] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:47.067] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:51:56.084] Imported new potential chain segment     number=552 hash=6afcca..17b27a blocks=1 txs=0 mgas=0.000 elapsed=2.063ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:51:56.110] Chain head was updated                   number=552 hash=6afcca..17b27a root=9fa53c..96e241 elapsed=2.616012ms
+[el-1-gqrl-qrysm] INFO [07-25|21:51:56.112] Starting work on payload                 id=0x29e46403ad8aa8bb
+[el-1-gqrl-qrysm] INFO [07-25|21:51:56.112] Updated payload                          id=0x29e46403ad8aa8bb number=553 hash=1ab502..bc16e1 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="51.901µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:51:57.083] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:07.096] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:17.109] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:27.123] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:37.140] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:47.154] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:52:56.027] Stopping work on payload                 id=0x29e46403ad8aa8bb reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:52:56.067] Imported new potential chain segment     number=553 hash=1ab502..bc16e1 blocks=1 txs=0 mgas=0.000 elapsed=2.485ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:52:56.141] Chain head was updated                   number=553 hash=1ab502..bc16e1 root=9fa53c..96e241 elapsed=1.206007ms
+[el-1-gqrl-qrysm] INFO [07-25|21:52:57.170] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:07.184] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:17.200] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:27.216] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:37.232] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:47.249] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:53:56.079] Imported new potential chain segment     number=554 hash=47e385..e7abd5 blocks=1 txs=0 mgas=0.000 elapsed=1.524ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:53:56.107] Chain head was updated                   number=554 hash=47e385..e7abd5 root=9fa53c..96e241 elapsed=1.213167ms
+[el-1-gqrl-qrysm] INFO [07-25|21:53:56.109] Starting work on payload                 id=0x038f3934a7b63b22
+[el-1-gqrl-qrysm] INFO [07-25|21:53:56.110] Updated payload                          id=0x038f3934a7b63b22 number=555 hash=aa34eb..4ce004 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="36.356µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:53:57.265] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:07.279] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:17.294] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:27.309] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:37.326] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:47.342] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:54:56.038] Stopping work on payload                 id=0x038f3934a7b63b22 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:54:56.072] Imported new potential chain segment     number=555 hash=aa34eb..4ce004 blocks=1 txs=0 mgas=0.000 elapsed=4.063ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:54:56.143] Chain head was updated                   number=555 hash=aa34eb..4ce004 root=9fa53c..96e241 elapsed=1.076557ms
+[el-1-gqrl-qrysm] INFO [07-25|21:54:57.355] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:07.369] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:17.384] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:27.403] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:37.419] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:47.435] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:55:56.072] Imported new potential chain segment     number=556 hash=89fc6e..99f184 blocks=1 txs=0 mgas=0.000 elapsed=1.899ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:55:56.101] Chain head was updated                   number=556 hash=89fc6e..99f184 root=9fa53c..96e241 elapsed=1.263273ms
+[el-1-gqrl-qrysm] INFO [07-25|21:55:56.102] Starting work on payload                 id=0xd86a58d32bd49125
+[el-1-gqrl-qrysm] INFO [07-25|21:55:56.103] Updated payload                          id=0xd86a58d32bd49125 number=557 hash=ef68f1..e8909b txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="32.977µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:55:57.450] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:07.466] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:17.483] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:27.498] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:37.512] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:47.526] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:56:56.042] Stopping work on payload                 id=0xd86a58d32bd49125 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:56:56.074] Imported new potential chain segment     number=557 hash=ef68f1..e8909b blocks=1 txs=0 mgas=0.000 elapsed=1.490ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:56:56.148] Chain head was updated                   number=557 hash=ef68f1..e8909b root=9fa53c..96e241 elapsed=1.31688ms
+[el-1-gqrl-qrysm] INFO [07-25|21:56:56.150] Starting work on payload                 id=0x4c090122ae94a866
+[el-1-gqrl-qrysm] INFO [07-25|21:56:56.150] Updated payload                          id=0x4c090122ae94a866 number=558 hash=65204c..0776e3 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="54.115µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:56:57.542] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:07.561] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:17.579] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:27.597] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:37.612] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:47.627] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:57:56.036] Stopping work on payload                 id=0x4c090122ae94a866 reason=delivery
+[el-1-gqrl-qrysm] INFO [07-25|21:57:56.067] Imported new potential chain segment     number=558 hash=65204c..0776e3 blocks=1 txs=0 mgas=0.000 elapsed=1.453ms     mgasps=0.000 triedirty=0.00B
+[el-1-gqrl-qrysm] INFO [07-25|21:57:56.141] Chain head was updated                   number=558 hash=65204c..0776e3 root=9fa53c..96e241 elapsed=1.262366ms
+[el-1-gqrl-qrysm] INFO [07-25|21:57:56.143] Starting work on payload                 id=0x53af3ba1d984e47a
+[el-1-gqrl-qrysm] INFO [07-25|21:57:56.143] Updated payload                          id=0x53af3ba1d984e47a number=559 hash=beab74..64fc22 txs=0 withdrawals=0 gas=0 fees=0 root=9fa53c..96e241 elapsed="87.412µs"
+[el-1-gqrl-qrysm] INFO [07-25|21:57:57.643] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:58:07.658] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:58:17.678] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:58:27.693] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:58:37.708] Looking for peers                        peercount=1 tried=0 static=0
+[el-1-gqrl-qrysm] INFO [07-25|21:58:47.724] Looking for peers                        peercount=1 tried=0 static=0
 ```
 
 :::
@@ -380,9 +383,9 @@ The `qrysm/scripts/local_testnet
 Modify this file before launching the `start_lical_testnet.sh` script to pick up the changes. You can also launch the script with the `-n $NETWORK_PARAMS_YAML` file where `$NETWORK_PARAMS_YAML` is your custom configuration. 
 
 ```bash
-# Full configuration reference [here](https://github.com/theQRL/zond-package?tab=readme-ov-file#configuration).
+# Full configuration reference [here](https://github.com/theQRL/qrl-package?tab=readme-ov-file#configuration).
 participants:
-  - el_type: gzond
+  - el_type: gqrl
     el_image: qrledger/go-zond:stable
     cl_type: qrysm
     cl_image: qrledger/qrysm:beacon-chain-latest
@@ -422,12 +425,12 @@ network_params:
 participants:
   # EL(Execution Layer) Specific flags
     # The type of EL client that should be started
-    # Valid values are gzond
-  - el_type: gzond
+    # Valid values are gqrl
+  - el_type: gqrl
 
     # The Docker image that should be used for the EL client; leave blank to use the default for the client type
     # Defaults by client:
-    # - gzond: qrledger/go-zond:stable
+    # - gqrl: qrledger/go-zond:stable
     el_image: ""
 
     # The log level string that this participant's EL client should log at
@@ -441,7 +444,7 @@ participants:
     el_extra_env_vars: {}
 
     # A list of optional extra labels the el container should spin up with
-    # Example; el_extra_labels: {"zond-package.partition": "1"}
+    # Example; el_extra_labels: {"qrl-package.partition": "1"}
     el_extra_labels: {}
 
     # A list of optional extra params that will be passed to the EL client container for modifying its behaviour
@@ -493,7 +496,7 @@ participants:
     cl_extra_env_vars: {}
 
     # A list of optional extra labels that will be passed to the CL client Beacon container.
-    # Example; cl_extra_labels: {"zond-package.partition": "1"}
+    # Example; cl_extra_labels: {"qrl-package.partition": "1"}
     cl_extra_labels: {}
 
     # A list of optional extra params that will be passed to the CL client Beacon container for modifying its behaviour
@@ -558,7 +561,7 @@ participants:
     vc_extra_env_vars: {}
 
     # A list of optional extra labels that will be passed to the validator client validator container.
-    # Example; vc_extra_labels: {"zond-package.partition": "1"}
+    # Example; vc_extra_labels: {"qrl-package.partition": "1"}
     vc_extra_labels: {}
 
     # A list of optional extra params that will be passed to the validator client container for modifying its behaviour
@@ -608,7 +611,7 @@ participants:
     remote_signer_extra_env_vars: {}
 
     # A list of optional extra labels that will be passed to the remote signer container.
-    # Example; remote_signer_extra_labels: {"zond-package.partition": "1"}
+    # Example; remote_signer_extra_labels: {"qrl-package.partition": "1"}
     remote_signer_extra_labels: {}
 
     # A list of optional extra params that will be passed to the remote signer container for modifying its behaviour
@@ -701,8 +704,8 @@ participants:
 # Each EL/CL/VC item can provide the same parameters as a standard participant
 participants_matrix: {}
   # el:
-  #   - el_type: gzond
-  #   - el_type: gzond
+  #   - el_type: gqrl
+  #   - el_type: gqrl
   # cl:
   #   - cl_type: qrysm
   #   - cl_type: qrysm
@@ -1130,7 +1133,7 @@ tx_spammer_params:
   # Defaults to empty
   tx_spammer_extra_args: []
 
-# Zond genesis generator params
+# QRL 2.0 genesis generator params
 zond_genesis_generator_params:
   # The image to use for zond genesis generator
   image: qrledger/qrysm:zond-genesis-generator-latest
@@ -1211,9 +1214,9 @@ A helpful command option is to avoid rebuilding Qrysm each time the testnet star
 
 ## References
 
-- Pre-configured Kurtosis Package for QRL: [`zond-package`](https://github.com/theQRL/zond-package/tree/main)
-- QRL Project Zond Private Network [Scripts and Config](https://github.com/theQRL/qrysm/tree/main/scripts/local_testnet)
+- Pre-configured Kurtosis Package for QRL: [`qrl-package`](https://github.com/theQRL/qrl-package/tree/main)
+- QRL 2.0 Private Network [Scripts and Config](https://github.com/theQRL/qrysm/tree/main/scripts/local_testnet)
 - Ethereum Kurtosis [fundamentals documentation](https://geth.ethereum.org/docs/fundamentals/kurtosis)
 - Kurtosis [CLI reference](https://docs.kurtosis.com/cli)
-- QRL `zond-package` [architecture documentation](https://github.com/theQRL/zond-package/blob/main/docs/architecture.md)
+- QRL `qrl-package` [architecture documentation](https://github.com/theQRL/qrl-package/blob/main/docs/architecture.md)
 

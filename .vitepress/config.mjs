@@ -2,10 +2,11 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Zond',
+  appearance: 'dark',
+  title: 'QRL 2.0',
   siteTitle: true,
   cleanUrls: true,
-  titleTemplate: 'Zond | :title',
+  titleTemplate: 'QRL 2.0 | :title',
   head: [
     [
       'script',
@@ -24,7 +25,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: "Zond Testnet",
+        text: "QRL 2.0 Testnet",
         activeMatch: '/testnet/',
         items: [
           { text: "Getting Started", link: "/testnet/get-started"},
@@ -37,19 +38,28 @@ export default defineConfig({
           },
           { text: "Running", items: [
             { text: "Linux", link: "/testnet/running/linux" },
-            { text: "Mac", link: "/testnet/running/mac" }
-          ], 
+            { text: "Mac", link: "/testnet/running/mac" },
+            { text: "Windows", link: "/testnet/running/windows" }
+          ],
           },
           { 
             text: "Usage", 
             items: [
+              { text: "Checking Status", link: "/testnet/usage/checking-status" },
               { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
-              { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
+              { text: "Getting Test QRL", link: "/testnet/usage/getting-zond" },
               { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
               { text: "dApp Example", link: "/testnet/usage/dapp-example" },
               { text: "Kurtosis", link: "/testnet/usage/kurtosis" }
             ]
-           }
+           },
+          {
+            text: "API",
+            items: [
+              { text: "Beacon Node API", link: "/testnet/api/beacon" },
+              { text: "gqrl API", link: "/testnet/api/gqrl" }
+            ]
+          }
         ],
       },
       {
@@ -63,88 +73,58 @@ export default defineConfig({
 
     ],
 
-    sidebar: {
-      // shows when the viewer is in the /beta-testnet/ directory
-      '/beta-testnet/': [
-        {
-          text: "Installation",
-          items: [
-            { text: "Windows", link: "/beta-testnet/windows" },
-            { text: "Linux", link: "/beta-testnet/linux" },
-            { text: "Mac", link: "/beta-testnet/mac" },
-            { text: "Updating", link: "/beta-testnet/updating"},
-          ],
-        },
-        {
-          text: "Testing",
-          items: [
-            { text: "Running", link: "/beta-testnet/running" },
-            { text: "Getting synced", link: "/beta-testnet/syncing" },
-            { text: "Creating a wallet", link: "/beta-testnet/creating-wallet" },
-            { text: "Making a transaction", link: "/beta-testnet/transaction" },
-            { text: "Staking/Unstaking", link: "/beta-testnet/staking" },
-            { text: "Smart Contracts", link: "/beta-testnet/smart-contracts"},
-          ],
-        },
-        {
-          text: "Reporting",
-          items: [
-            { text: "Bug/Error report", link: "/reporting/bug" },
-            { text: "Success report", link: "/reporting/success" },
-            { text: "Feature request", link: "/reporting/feature" },
-          ],
-        },
-      ],
-
-      // shows when the viewer is in the /testnet/ directory
-      '/testnet/': [
-        {
-          text: "Zond Testnet V1",
-          items: [
-            { text: "Getting Started", link: "/testnet/get-started"},
-            { 
-              text: "Install", 
-              items: [
-                { text: "Linux", link: "/testnet/install/linux" },
-                { text: "Mac", link: "/testnet/install/mac" },
-                { text: "Windows", link: "/testnet/install/windows" },
-                { text: "Private Network", link: "/testnet/install/private-network" },
-              ]
-             },
-             { text: "Running", items: [
-              { text: "Linux", link: "/testnet/running/linux" },
-              { text: "Mac", link: "/testnet/running/mac" }
-            ], 
-            },
-            { 
-              text: "Usage", 
-              items: [
-                { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
-                { text: "Getting Zond", link: "/testnet/usage/getting-zond" },
-                { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
-                { text: "dApp Example", link: "/testnet/usage/dapp-example" },
-                { text: "Kurtosis", link: "/testnet/usage/kurtosis" }
-              ]
-             },
-
-            {
-              text: "Reporting",
-              items: [
-            { text: "Bug/Error report", link: "/reporting/bug" },
-            { text: "Success report", link: "/reporting/success" },
-            { text: "Feature request", link: "/reporting/feature" },
-              ],
-            },
-
-          ],
-        },
-      ],
-
-    },
+    sidebar: [
+      {
+        text: "QRL 2.0 Testnet V2",
+        items: [
+          { text: "Getting Started", link: "/testnet/get-started"},
+          {
+            text: "Install",
+            items: [
+              { text: "Linux", link: "/testnet/install/linux" },
+              { text: "Mac", link: "/testnet/install/mac" },
+              { text: "Windows", link: "/testnet/install/windows" },
+              { text: "Private Network", link: "/testnet/install/private-network" },
+            ]
+          },
+          { text: "Running", items: [
+            { text: "Linux", link: "/testnet/running/linux" },
+            { text: "Mac", link: "/testnet/running/mac" },
+            { text: "Windows", link: "/testnet/running/windows" }
+          ]},
+          {
+            text: "Usage",
+            items: [
+              { text: "Checking Status", link: "/testnet/usage/checking-status" },
+              { text: "Web3 Wallet Extension", link: "/testnet/usage/web3-wallet" },
+              { text: "Getting Test QRL", link: "/testnet/usage/getting-zond" },
+              { text: "Smart Contract Example", link: "/testnet/usage/contract-example" },
+              { text: "dApp Example", link: "/testnet/usage/dapp-example" },
+              { text: "Kurtosis", link: "/testnet/usage/kurtosis" }
+            ]
+          },
+          {
+            text: "API",
+            items: [
+              { text: "Beacon Node API", link: "/testnet/api/beacon" },
+              { text: "gqrl API", link: "/testnet/api/gqrl" }
+            ]
+          },
+          {
+            text: "Reporting",
+            items: [
+              { text: "Bug/Error report", link: "/reporting/bug" },
+              { text: "Success report", link: "/reporting/success" },
+              { text: "Feature request", link: "/reporting/feature" },
+            ],
+          },
+        ],
+      },
+    ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2017-present The QRL'
+      copyright: 'Copyright © 2016-2026 The QRL'
     },
 
     socialLinks: [

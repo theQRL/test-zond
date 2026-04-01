@@ -1,7 +1,7 @@
 ---
 layout: doc
 outline: deep
-title: "Zond dApp Contract Example"
+title: "QRL 2.0 dApp Contract Example"
 description: "Create a simple dApp application to run on a local testnet."
 ---
 
@@ -12,4 +12,4 @@ description: "Create a simple dApp application to run on a local testnet."
 
 ### Guide
 
-Follow readme over here: https://github.com/theQRL/zond-web3-wallet-dapp-example
+Follow readme over here: https://github.com/theQRL/qrl-web3-wallet-dapp-example

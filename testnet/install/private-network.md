@@ -2,14 +2,14 @@
 layout: doc
 outline: deep
 title: "Private Network Install"
-description: "This page contains instructions for installing the QRL Project Zond Testnet using Kurtosis as a standalone private network"
+description: "This page contains instructions for installing the QRL 2.0 Testnet using Kurtosis as a standalone private network"
 ---
 
 # {{ $frontmatter.title}}
 
 {{ $frontmatter.description}}
 
-The QRL [`qrysm`](https://github.com/theqrl/qrysm) package contains scripts that allow for running a small local testnet using Kurtosis. This script will launch 2 beacon nodes, 2 validator clients and 2 gzond execution clients.
+The QRL [`qrysm`](https://github.com/theqrl/qrysm) package contains scripts that allow for running a small local testnet using Kurtosis. This script will launch 2 beacon nodes, 2 validator clients and 2 gqrl execution clients.
 
  This setup can be useful for testing and development.
 
@@ -28,7 +28,7 @@ The QRL [`qrysm`](https://github.com/theqrl/qrysm) package contains scripts that
 
 
 
-Running `qrysm/scripts/local_testnet/start_local_testnet.sh` will build the `gzond` execution node, `qrysm` consensus node, and `qrysm` validator node binaries, will generate the genesis information and bootstrap everything together.
+Running `qrysm/scripts/local_testnet/start_local_testnet.sh` will build the `gqrl` execution node, `qrysm` consensus node, and `qrysm` validator node binaries, will generate the genesis information and bootstrap everything together.
 
 :::details Private Network Architecture 
 
@@ -38,20 +38,20 @@ Running `qrysm/scripts/local_testnet/start_local_testnet.sh` will build the `gzo
                   ========================================
       Validator Stack 1                      Validator Stack 2
 +--------------------------+           +--------------------------+
-|     vc-1-gzond-qrysm     |           |     vc-2-gzond-qrysm     |
+|     vc-1-gqrl-qrysm      |           |     vc-2-gqrl-qrysm      |
 |    (Validator Client)    |           |    (Validator Client)    |
 +--------------------------+           +--------------------------+
              |                                      |
              v [1]                                  v [1]
 +--------------------------+           +--------------------------+
-|     cl-1-qrysm-gzond     |  <----->  |     cl-2-qrysm-gzond     |
+|     cl-1-qrysm-gqrl      |  <----->  |     cl-2-qrysm-gqrl      |
 |     (Consensus Node)     |    [3]    |     (Consensus Node)     |
 +--------------------------+           +--------------------------+
              ^ |                                  ^ |
              | | [2]                              | | [2]
              | v                                  | v
 +--------------------------+           +--------------------------+
-|     el-1-gzond-qrysm     |  <----->  |     el-2-gzond-qrysm     |
+|     el-1-gqrl-qrysm      |  <----->  |     el-2-gqrl-qrysm      |
 |     (Execution Node)     |    [4]    |     (Execution Node)     |
 +--------------------------+           +--------------------------+
 LEGEND:
@@ -64,7 +64,7 @@ LEGEND:
 :::
 
 :::info Configuration Options
-This script will reference the configuration options declared in `qrysm/scripts/local_testnet/network_params.yml`. For a full reference to all configuration options and additional functions see the [Kurtosis guide](/testnet/usage/kurtosis).
+This script will reference the configuration options declared in `qrysm/scripts/local_testnet/network_params.yaml`. For a full reference to all configuration options and additional functions see the [Kurtosis guide](/testnet/usage/kurtosis).
 :::
 
 
@@ -93,7 +93,7 @@ kurtosis service logs local-testnet $SERVICE_NAME
 Kurtosis also comes with a web UI which can be open with `kurtosis web`.
 :::
 
-Some testnet parameters can be varied by modifying the `network_params.yaml` file. The full configuration reference for kurtosis is specified [here](https://github.com/theQRL/zond-package?tab=readme-ov-file#configuration).
+Some testnet parameters can be varied by modifying the `network_params.yaml` file. The full configuration reference for kurtosis is specified [here](https://github.com/theQRL/qrl-package?tab=readme-ov-file#configuration).
 
 
 ## Stopping the testnet

@@ -3,7 +3,7 @@
 layout: home
 
 title: "Contact Details"
-titleTemplate: Report issues, get help and connect to the Zond team
+titleTemplate: Report issues, get help and connect to the QRL team
 
 hero:
   name: "Contact Details"
@@ -19,7 +19,7 @@ hero:
 
 features:
   - title: BetaNet v1.0.0
-    details: Download, build and run the Zond BetaNet release to get started
+    details: Download, build and run the QRL 2.0 release to get started
     link: /betanet/index
 ---
 
