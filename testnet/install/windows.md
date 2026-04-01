@@ -31,7 +31,7 @@ mkdir qrl-testnet
 cd qrl-testnet
 ```
 
-Clone the go-zond and qrysm GitHub repositories inside of the `qrl-testnet` directory, which we'll build from.
+Clone the go-qrl and qrysm GitHub repositories inside of the `qrl-testnet` directory, which we'll build from.
 
 ```cmd
 git clone https://github.com/theQRL/go-qrl.git
