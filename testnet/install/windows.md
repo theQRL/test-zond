@@ -12,7 +12,7 @@ description: "This page contains instructions for installing the QRL 2.0 Testnet
 {{ $frontmatter.description}}
 
 ::: info NOTES
-Tested on Windows 10 and Windows 11 using Windows Command Prompt (cmd.exe)
+Currently undergoing testing in Windows 11
 :::
 
 ## Install prerequisites

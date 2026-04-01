@@ -11,7 +11,7 @@ description: "This page contains instructions for installing the QRL 2.0 Testnet
 {{ $frontmatter.description}}
 
 ::: info NOTES
-Tested on macOS Sonoma & Sequoia (Apple Silicon & Intel)
+Tested on macOS Tahoe (Apple Silicon)
 :::
 
 ## Install prerequisites

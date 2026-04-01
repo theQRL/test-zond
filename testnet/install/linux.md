@@ -11,7 +11,7 @@ description: "This page contains instructions for installing the QRL 2.0 Testnet
 {{ $frontmatter.description}}
 
 ::: info NOTES
-Tested on Ubuntu 24.04 & Fedora 41
+Being tested on Ubuntu 24.04
 :::
 
 ## Install prerequisites  
