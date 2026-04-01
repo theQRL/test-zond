@@ -48,10 +48,10 @@ Make your QRL 2.0 directory. This is where the QRL 2.0 Testnet V2 repos, binarie
 mkdir ~/zond-testnet/ && cd ~/zond-testnet/
 ```
 
-Clone the go-zond and qrysm GitHub repositories inside of the `~/zond-testnet/` directory, which we'll build from.
+Clone the go-qrl and qrysm GitHub repositories inside of the `~/zond-testnet/` directory, which we'll build from.
 
 ```bash
-git clone https://github.com/theQRL/go-zond.git
+git clone https://github.com/theQRL/go-qrl.git
 git clone https://github.com/theQRL/qrysm.git
 ```
 
@@ -68,7 +68,7 @@ gobrew use 1.25
 gqrl is the official Golang execution layer implementation of the QRL 2.0 protocol.
 
 ``` bash
-cd go-zond/
+cd go-qrl/
 make all
 cp build/bin/gqrl ../
 cd ..
