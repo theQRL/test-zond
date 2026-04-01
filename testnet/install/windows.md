@@ -13,6 +13,7 @@ description: "This page contains instructions for installing the QRL 2.0 Testnet
 
 ::: info NOTES
 Currently undergoing testing in Windows 11
+You can build under WSL for Windows if you wish: follow the [Linux instructions](/testnet/install/linux).
 :::
 
 ## Install prerequisites
