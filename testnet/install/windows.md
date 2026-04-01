@@ -13,6 +13,7 @@ description: "This page contains instructions for installing the QRL 2.0 Testnet
 
 ::: info NOTES
 Currently undergoing testing in Windows 11
+You can build under WSL for Windows if you wish: follow the [Linux instructions](/testnet/install/linux).
 :::
 
 ## Install prerequisites
@@ -26,14 +27,14 @@ Currently undergoing testing in Windows 11
 Make your QRL 2.0 directory. This is where the QRL 2.0 Testnet V2 repos, binaries, and data will be held.
 
 ```cmd
-mkdir zond-testnet
-cd zond-testnet
+mkdir qrl-testnet
+cd qrl-testnet
 ```
 
-Clone the go-zond and qrysm GitHub repositories inside of the `zond-testnet` directory, which we'll build from.
+Clone the go-zond and qrysm GitHub repositories inside of the `qrl-testnet` directory, which we'll build from.
 
 ```cmd
-git clone https://github.com/theQRL/go-zond.git
+git clone https://github.com/theQRL/go-qrl.git
 git clone https://github.com/theQRL/qrysm.git
 ```
 
@@ -44,7 +45,7 @@ git clone https://github.com/theQRL/qrysm.git
 gqrl is the official Golang execution layer implementation of the QRL 2.0 protocol.
 
 ```cmd
-cd go-zond
+cd go-qrl
 go build -o ..\gqrl.exe .\cmd\gqrl
 cd ..
 ```
