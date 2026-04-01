@@ -2,7 +2,7 @@
 layout: doc
 outline: deep
 title: "Running on Linux"
-description: "This page contains instructions for running the Zond Testnet V1 On Linux"
+description: "This page contains instructions for running the QRL 2.0 Testnet V2 on Linux"
 ---
 
 # {{ $frontmatter.title}}
@@ -11,24 +11,32 @@ description: "This page contains instructions for running the Zond Testnet V1 On
 
 ## Download configuration and genesis files
 
-Download the ``config.yml`` and ``genesis.ssz`` files from the [go-zond-metadata repository](https://github.com/theQRL/go-zond-metadata/raw/refs/heads/main/testnet/testnetv1/) to the same directory as your `gzond` executable.
+Download the ``config.yml`` and ``genesis.ssz`` files from the [go-qrl-metadata repository](https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/) to the same directory as your `gqrl` executable.
 
-```bash
-wget https://github.com/theQRL/go-zond-metadata/raw/refs/heads/main/testnet/testnetv1/genesis.ssz
-wget https://raw.githubusercontent.com/theQRL/go-zond-metadata/refs/heads/main/testnet/testnetv1/config.yml
+::: code-group
+
+```bash [curl]
+curl -LO https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/genesis.ssz
+curl -LO https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/config.yml
 ```
 
-## Run the Execution Engine (gzond)
+```bash [wget]
+wget https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/genesis.ssz
+wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/config.yml
+```
+
+:::
+
+## Run the Execution Engine (gqrl)
 
 ```bash
-./gzond \
+./gqrl \
   --nat=extip:0.0.0.0 \
   --testnet \
   --http \
-  --http.api "web3,net,zond,engine" \
-  --datadir=gzonddata console \
-  --syncmode=full \
-  --snapshot=false
+  --http.api "web3,net,qrl,engine" \
+  --datadir=gqrldata console \
+  --syncmode=full
 ```
 
 ## Run the Consensus Engine (Beacon Chain)
@@ -44,20 +52,19 @@ wget https://raw.githubusercontent.com/theQRL/go-zond-metadata/refs/heads/main/t
   --chain-id=32382 \
   --execution-endpoint=http://localhost:8551 \
   --accept-terms-of-use \
-  --jwt-secret=gzonddata/gzond/jwtsecret \
+  --jwt-secret=gqrldata/gqrl/jwtsecret \
   --contract-deployment-block=0 \
   --minimum-peers-per-subnet=0 \
   --p2p-static-id \
-  --suggested-fee-recipient=Z20e526833d2ab5bd20de64cc00f2c2c7a07060bf \
-  --bootstrap-node "enr:-MK4QBUiE0sz67x3RrGbyEKZYnJRLp1gv3UkUEsON18nkisZTM7iV5ACYdZyaWvz1vghvrBO079kf90jHQnOTEn_yf2GAZmls6Ozh2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC0g6p2Jc2VjcDI1NmsxoQIhBcsnDFoKva4aeNktuAxWb7IxY948okJ1bpv20P_MGYhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A" \
-  --bootstrap-node "enr:-MK4QFirz10ntbN32_GOn6B1uZRU5rj6b4bEoP9o4yf_MlrGINIW4nICvCWexO3dHRYJIbIFXfEUQ3c3oHNYd3p_SjWGAZmltUODh2F0dG5ldHOIAAAAAAAAAACEZXRoMpB0w1LqIAAAif__________gmlkgnY0gmlwhC1MJ0KJc2VjcDI1NmsxoQNPBaBuj93C-yFVRC4mWoK315QM9O0SWdf741t3sbPtNIhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A" \
+  --bootstrap-node "qnr:-Me4QKAyB33PkhFM0zY3r5i9GC7aSP_Zm39U8Y2rOIzr6443SngB1yhgGh7eFwNK0WNvDWjUbNksuJqME3ZEnwS9qJSGAZ1Gb_3yh2F0dG5ldHOIAAAAAAAAAACJY29uc2Vuc3VzkJCnUX4gAACJ__________-CaWSCdjSCaXCEI7LKF4lzZWNwMjU2azGhA7Z8d7NnIyueM0N06PyRt8jcnKvuRkMTmtzoDOw081ouiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g" \
+  --bootstrap-node "qnr:-Me4QE7keK-7ViWaDwpa0GtR12qbe9ZiVvKX95z7A2hkJHA6L-2A0n8G6dn8M1kubmxAeVw7Nwaa6IBPCX9765zNi56GAZ1Gb-8uh2F0dG5ldHOIAAAAAAAAAACJY29uc2Vuc3VzkJCnUX4gAACJ__________-CaWSCdjSCaXCEDSlCUolzZWNwMjU2azGhA9t_KLMx2GyZcw7tncC7iLdJpKBS_tCp9CavD6LXd5ZaiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g" \
   --verbosity debug \
   --log-file beacon.log \
   --log-format text
 ```
 
 ::: info TIP
-You might want to save this to different files for easier reference (ie `1-gzond.sh`, `2-beacon.sh`)
+You might want to save this to different files for easier reference (ie `1-gqrl.sh`, `2-beacon.sh`)
 :::
 
 ## Testing
@@ -65,6 +72,6 @@ You might want to save this to different files for easier reference (ie `1-gzond
 You can run the following command to get the recent block height
 
 ```
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"zond_blockNumber","params":[],"id":1}' http://127.0.0.1:8545
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"qrl_blockNumber","params":[],"id":1}' http://127.0.0.1:8545
 ```
 

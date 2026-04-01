@@ -2,7 +2,7 @@
 layout: doc
 outline: deep
 title: "Running on Mac"
-description: "This page contains instructions for running the Zond Testnet V1 On Mac"
+description: "This page contains instructions for running the QRL 2.0 Testnet V2 on Mac"
 ---
 
 # {{ $frontmatter.title}}
@@ -11,4 +11,4 @@ description: "This page contains instructions for running the Zond Testnet V1 On
 
 ## Running
 
-Follow instructions over on our [Linux page](/testnet/running/linux) for running Zond.
+Follow instructions over on our [Linux page](/testnet/running/linux) for running QRL 2.0.

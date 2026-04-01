@@ -1,7 +1,7 @@
 ---
 layout: doc
 outline: deep
-title: "Zond dApp Contract Example"
+title: "QRL 2.0 dApp Contract Example"
 description: "Create a simple dApp application to run on a local testnet."
 ---
 

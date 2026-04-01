@@ -1,7 +1,7 @@
 ---
 layout: doc
 outline: deep
-title: "Zond smart contract example"
+title: "QRL 2.0 smart contract example"
 description: "Create a simple contract to run on a local testnet and add to the web3 web wallet"
 
 ---

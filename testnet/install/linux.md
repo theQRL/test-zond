@@ -2,7 +2,7 @@
 layout: doc
 outline: deep
 title: "Linux Install"
-description: "This page contains instructions for installing the Zond Testnet V1 On Linux"
+description: "This page contains instructions for installing the QRL 2.0 Testnet V2 on Linux"
 ---
 
 
@@ -42,40 +42,40 @@ Be sure to add the installation path to your `~/.bashrc` as instructed at the en
 
 ## Setup the environment
 
-Make your Zond directory. This is where the Zond Testnet V1 repos, binaries, and data will be held.
+Make your QRL 2.0 directory. This is where the QRL 2.0 Testnet V2 repos, binaries, and data will be held.
 
 ```bash
-mkdir ~/zond-testnetv1/ && cd ~/zond-testnetv1/
+mkdir ~/zond-testnet/ && cd ~/zond-testnet/
 ```
 
-Clone the go-zond and qrysm GitHub repositories inside of the `~/zond-testnetv1/` directory, which we'll build from.
+Clone the go-zond and qrysm GitHub repositories inside of the `~/zond-testnet/` directory, which we'll build from.
 
 ```bash
 git clone https://github.com/theQRL/go-zond.git
 git clone https://github.com/theQRL/qrysm.git
 ```
 
-## Build Zond binaries
+## Build QRL 2.0 binaries
 
-First, make sure you're using `golang 1.21.5` 
+First, make sure you're using `golang 1.25`
 
 ```bash
-gobrew use 1.21.5
+gobrew use 1.25
 ```
 
 ### Gzond (Execution Layer)
 
-Gzond is the official Golang execution layer implementation of the Zond protocol.
+GZond is the official Golang execution layer implementation of the QRL 2.0 protocol.
 
 ``` bash
 cd go-zond/
 make all
-cp build/bin/gzond ../
+cp build/bin/gqrl ../
 cd ..
 ```
 ### Qrysm (Consensus Engine)
 
-Qrysm is a Golang implementation of the Zond Consensus specification, developed by The QRL and based on the Prysmatic Labs implementation of the Eth2 consensus specification.
+Qrysm is a Golang implementation of the QRL 2.0 Consensus specification, developed by The QRL and based on the Prysmatic Labs implementation of the Eth2 consensus specification.
 
 ```bash
 cd qrysm

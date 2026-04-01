@@ -5,13 +5,13 @@ footer: true
 title: 'Documentation'
 
 hero:
-  name: "Project Zond"
+  name: "QRL 2.0"
   text: Documentation
   tagline: Build with the next evolution of post-quantum secure distributed ledger technology
 #  image:
 #    src: /qrl-logo.svg
 #    src: /zond-stack.png
-#    alt: Zond by The QRL
+#    alt: QRL 2.0
   actions:
     - theme: brand
       text: Get Started
@@ -21,10 +21,10 @@ hero:
       link: /reporting
 
 features:
-  - title: Zond Testnet V1
-    details: Get started with the latest Zond testnet network
+  - title: QRL 2.0 Testnet V2
+    details: Get started with the latest QRL 2.0 testnet network
     link: /testnet
   - title: Reporting
-    details: Report issues, get help, and connect to the core Zond team
+    details: Report issues, get help, and connect to the core QRL team
     link: /reporting
 ---
