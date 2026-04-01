@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "localhost:8545"
+      "url": "http://localhost:8545"
     }
   ],
   "paths": {
-    "qrl_blockNumber": {
+    "/qrl_blockNumber": {
       "post": {
         "tags": [
           "Block"
@@ -49,7 +49,7 @@
         }
       }
     },
-    "qrl_chainId": {
+    "/qrl_chainId": {
       "post": {
         "tags": [
           "Network"
@@ -87,7 +87,7 @@
         }
       }
     },
-    "qrl_syncing": {
+    "/qrl_syncing": {
       "post": {
         "tags": [
           "Network"
@@ -125,7 +125,7 @@
         }
       }
     },
-    "qrl_gasPrice": {
+    "/qrl_gasPrice": {
       "post": {
         "tags": [
           "Chain"
@@ -163,7 +163,7 @@
         }
       }
     },
-    "qrl_accounts": {
+    "/qrl_accounts": {
       "post": {
         "tags": [
           "Account"
@@ -201,7 +201,7 @@
         }
       }
     },
-    "qrl_getBalance": {
+    "/qrl_getBalance": {
       "post": {
         "tags": [
           "Account"
@@ -242,7 +242,7 @@
         }
       }
     },
-    "qrl_getStorageAt": {
+    "/qrl_getStorageAt": {
       "post": {
         "tags": [
           "Contract"
@@ -284,7 +284,7 @@
         }
       }
     },
-    "qrl_getTransactionCount": {
+    "/qrl_getTransactionCount": {
       "post": {
         "tags": [
           "Transaction"
@@ -325,7 +325,7 @@
         }
       }
     },
-    "qrl_getBlockTransactionCountByHash": {
+    "/qrl_getBlockTransactionCountByHash": {
       "post": {
         "tags": [
           "Block"
@@ -365,7 +365,7 @@
         }
       }
     },
-    "qrl_getBlockTransactionCountByNumber": {
+    "/qrl_getBlockTransactionCountByNumber": {
       "post": {
         "tags": [
           "Block"
@@ -405,7 +405,7 @@
         }
       }
     },
-    "qrl_getCode": {
+    "/qrl_getCode": {
       "post": {
         "tags": [
           "Contract"
@@ -446,7 +446,7 @@
         }
       }
     },
-    "qrl_sign": {
+    "/qrl_sign": {
       "post": {
         "tags": [
           "Transaction"
@@ -487,7 +487,7 @@
         }
       }
     },
-    "qrl_signTransaction": {
+    "/qrl_signTransaction": {
       "post": {
         "tags": [
           "Transaction"
@@ -537,7 +537,7 @@
         }
       }
     },
-    "qrl_sendTransaction": {
+    "/qrl_sendTransaction": {
       "post": {
         "tags": [
           "Transaction"
@@ -587,7 +587,7 @@
         }
       }
     },
-    "qrl_sendRawTransaction": {
+    "/qrl_sendRawTransaction": {
       "post": {
         "tags": [
           "Transaction"
@@ -627,7 +627,7 @@
         }
       }
     },
-    "qrl_call": {
+    "/qrl_call": {
       "post": {
         "tags": [
           "Contract"
@@ -671,7 +671,7 @@
         }
       }
     },
-    "qrl_estimateGas": {
+    "/qrl_estimateGas": {
       "post": {
         "tags": [
           "Contract"
@@ -716,7 +716,7 @@
         }
       }
     },
-    "qrl_getBlockByHash": {
+    "/qrl_getBlockByHash": {
       "post": {
         "tags": [
           "Block"
@@ -757,7 +757,7 @@
         }
       }
     },
-    "qrl_getBlockByNumber": {
+    "/qrl_getBlockByNumber": {
       "post": {
         "tags": [
           "Block"
@@ -798,7 +798,7 @@
         }
       }
     },
-    "qrl_getTransactionByHash": {
+    "/qrl_getTransactionByHash": {
       "post": {
         "tags": [
           "Transaction"
@@ -838,7 +838,7 @@
         }
       }
     },
-    "qrl_getTransactionByBlockHashAndIndex": {
+    "/qrl_getTransactionByBlockHashAndIndex": {
       "post": {
         "tags": [
           "Transaction"
@@ -879,7 +879,7 @@
         }
       }
     },
-    "qrl_getTransactionByBlockNumberAndIndex": {
+    "/qrl_getTransactionByBlockNumberAndIndex": {
       "post": {
         "tags": [
           "Transaction"
@@ -920,7 +920,7 @@
         }
       }
     },
-    "qrl_getTransactionReceipt": {
+    "/qrl_getTransactionReceipt": {
       "post": {
         "tags": [
           "Transaction"
@@ -960,7 +960,7 @@
         }
       }
     },
-    "qrl_newFilter": {
+    "/qrl_newFilter": {
       "post": {
         "tags": [
           "Contract"
@@ -1007,7 +1007,7 @@
         }
       }
     },
-    "qrl_newBlockFilter": {
+    "/qrl_newBlockFilter": {
       "post": {
         "tags": [
           "Block"
@@ -1045,7 +1045,7 @@
         }
       }
     },
-    "qrl_newPendingTransactionFilter": {
+    "/qrl_newPendingTransactionFilter": {
       "post": {
         "tags": [
           "Transaction"
@@ -1083,7 +1083,7 @@
         }
       }
     },
-    "qrl_uninstallFilter": {
+    "/qrl_uninstallFilter": {
       "post": {
         "tags": [
           "Filter"
@@ -1123,7 +1123,7 @@
         }
       }
     },
-    "qrl_getFilterChanges": {
+    "/qrl_getFilterChanges": {
       "post": {
         "tags": [
           "Filter"
@@ -1163,7 +1163,7 @@
         }
       }
     },
-    "qrl_getFilterLogs": {
+    "/qrl_getFilterLogs": {
       "post": {
         "tags": [
           "Filter"
@@ -1203,7 +1203,7 @@
         }
       }
     },
-    "qrl_getLogs": {
+    "/qrl_getLogs": {
       "post": {
         "tags": [
           "Contract"
@@ -1250,7 +1250,7 @@
         }
       }
     },
-    "qrl_maxPriorityFeePerGas": {
+    "/qrl_maxPriorityFeePerGas": {
       "post": {
         "tags": [
           "Chain"
@@ -1288,7 +1288,7 @@
         }
       }
     },
-    "qrl_getHeaderByNumber": {
+    "/qrl_getHeaderByNumber": {
       "post": {
         "tags": [
           "Block"
@@ -1328,7 +1328,7 @@
         }
       }
     },
-    "qrl_getHeaderByHash": {
+    "/qrl_getHeaderByHash": {
       "post": {
         "tags": [
           "Block"
@@ -1368,7 +1368,7 @@
         }
       }
     },
-    "qrl_pendingTransactions": {
+    "/qrl_pendingTransactions": {
       "post": {
         "tags": [
           "Transaction"
@@ -1406,7 +1406,7 @@
         }
       }
     },
-    "qrl_getBlockReceipts": {
+    "/qrl_getBlockReceipts": {
       "post": {
         "tags": [
           "Transaction"
@@ -1446,7 +1446,7 @@
         }
       }
     },
-    "qrl_fillTransaction": {
+    "/qrl_fillTransaction": {
       "post": {
         "tags": [
           "Transaction"
@@ -1491,7 +1491,7 @@
         }
       }
     },
-    "qrl_getProof": {
+    "/qrl_getProof": {
       "post": {
         "tags": [
           "Contract"
@@ -1535,7 +1535,7 @@
         }
       }
     },
-    "qrl_createAccessList": {
+    "/qrl_createAccessList": {
       "post": {
         "tags": [
           "Contract"
@@ -1579,7 +1579,7 @@
         }
       }
     },
-    "qrl_feeHistory": {
+    "/qrl_feeHistory": {
       "post": {
         "tags": [
           "Block"
@@ -2531,7 +2531,7 @@
                     },
                     "maxFeePerGas": {
                       "type": "string",
-                      "description": "Max total fee per gas unit you’re willing to pay.",
+                      "description": "Max total fee per gas unit you\u2019re willing to pay.",
                       "example": "0x6fc23ac00"
                     },
                     "maxPriorityFeePerGas": {
@@ -2541,7 +2541,7 @@
                     },
                     "nonce": {
                       "type": "string",
-                      "description": "Sender’s transaction count, ensures uniqueness/order.",
+                      "description": "Sender\u2019s transaction count, ensures uniqueness/order.",
                       "example": "0x1"
                     }
                   },
@@ -2609,7 +2609,7 @@
                       },
                       "nonce": {
                         "type": "string",
-                        "description": "Sender’s transaction count (hex)",
+                        "description": "Sender\u2019s transaction count (hex)",
                         "example": "0x1"
                       },
                       "to": {
@@ -2753,7 +2753,7 @@
                     },
                     "maxFeePerGas": {
                       "type": "string",
-                      "description": "Max total fee per gas unit you’re willing to pay.",
+                      "description": "Max total fee per gas unit you\u2019re willing to pay.",
                       "example": "0x6fc23ac00"
                     },
                     "maxPriorityFeePerGas": {
@@ -2763,7 +2763,7 @@
                     },
                     "nonce": {
                       "type": "string",
-                      "description": "Sender’s transaction count, ensures uniqueness/order.",
+                      "description": "Sender\u2019s transaction count, ensures uniqueness/order.",
                       "example": "0x1"
                     }
                   },
