@@ -46,7 +46,6 @@ wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/te
   --datadir=beacondata \
   --min-sync-peers=0 \
   --genesis-state=genesis.ssz \
-  --bootstrap-node= \
   --chain-config-file=config.yml \
   --config-file=config.yml \
   --chain-id=32382 \
