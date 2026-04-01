@@ -16,12 +16,12 @@ Download the ``config.yml`` and ``genesis.ssz`` files from the [go-qrl-metadata 
 ::: code-group
 
 ```bash [curl]
-curl -LO https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/genesis.ssz
+curl -LO https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/genesis.ssz
 curl -LO https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/config.yml
 ```
 
 ```bash [wget]
-wget https://github.com/theQRL/go-qrl-metadata/raw/refs/heads/main/testnet/testnetv2/genesis.ssz
+wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/genesis.ssz
 wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/testnet/testnetv2/config.yml
 ```
 
@@ -46,7 +46,6 @@ wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/te
   --datadir=beacondata \
   --min-sync-peers=0 \
   --genesis-state=genesis.ssz \
-  --bootstrap-node= \
   --chain-config-file=config.yml \
   --config-file=config.yml \
   --chain-id=32382 \
