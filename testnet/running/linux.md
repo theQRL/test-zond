@@ -44,11 +44,10 @@ wget https://raw.githubusercontent.com/theQRL/go-qrl-metadata/refs/heads/main/te
 ```bash
 ./beacon-chain \
   --datadir=beacondata \
-  --min-sync-peers=0 \
+  --min-sync-peers=1 \
   --genesis-state=genesis.ssz \
   --chain-config-file=config.yml \
   --config-file=config.yml \
-  --chain-id=32382 \
   --execution-endpoint=http://localhost:8551 \
   --accept-terms-of-use \
   --jwt-secret=gqrldata/gqrl/jwtsecret \
